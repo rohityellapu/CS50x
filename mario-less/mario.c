@@ -10,7 +10,8 @@ int main(void)
     do
     {
         height = get_int("Height: ");
-    } while (height < 1 || height > 8); // Prompt untill valid input
+    } // Prompt untill valid input
+    while (height < 1 || height > 8);
 
     // Build rows in accordance with the height of the pyramid
     for (int i = 0; i < height; i++)
