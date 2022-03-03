@@ -15,7 +15,7 @@ int main(void)
     {
         // Print # for each row
         // for (int j = height; j > 1; j--)
-        for (int j = height; j > 0; --j)
+        for (int j = height - 1; j >= 0; --j)
         {
             // printf("#");
             if (i <= j)
