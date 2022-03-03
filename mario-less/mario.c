@@ -15,10 +15,10 @@ int main(void)
     {
         // Print # for each row
         // for (int j = height; j > 1; j--)
-        for (int j = 0; j < height; ++j)
+        for (int j = height; j > 0; --j)
         {
             // printf("#");
-            if (j <= i)
+            if (j < i)
             {
                 printf("#");
             }
