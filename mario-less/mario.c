@@ -17,15 +17,15 @@ int main(void)
         // for (int j = height; j > 1; j--)
         for (int j = 0; j < height; ++j)
         {
-            printf("#");
-            // if (j <= i)
-            // {
-            //     printf("#");
-            // }
-            // else
-            // {
-            //     printf("5");
-            // }
+            // printf("#");
+            if (j < i)
+            {
+                printf("#");
+            }
+            else
+            {
+                printf("5");
+            }
         }
         printf("#\n");
     }
