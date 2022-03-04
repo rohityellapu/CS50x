@@ -42,7 +42,8 @@ int get_cents(void)
     {
         // Prompt the user
         num = get_int("Changes owed: ");
-    } while (num < 0); // Prompt untill valid input
+    } // Prompt untill valid input
+    while (num < 0);
     return num;
 }
 
