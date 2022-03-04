@@ -47,8 +47,17 @@ int get_cents(void)
 
 int calculate_quarters(int cents)
 {
-    // TODO
-    return 0;
+    // Check if cents is greater than 25(a quarter)
+    if (cents > 25)
+    {
+        int remainder = cents % 25;
+        int quarters = (cents - remainder) / 25;
+        return quarters;
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 int calculate_dimes(int cents)
