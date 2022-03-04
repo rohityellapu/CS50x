@@ -40,17 +40,21 @@ int get_cents(void)
     int num;
     do
     {
+        // Prompt the user
         num = get_int("Changes owed: ");
-    } while (num < 0);
+    } while (num < 0); // Prompt untill valid input
     return num;
 }
 
 int calculate_quarters(int cents)
 {
-    // Check if cents is greater than 25(a quarter)
+    // Check if cents is greater than or equal to 25(a quarter)
     if (cents >= 25)
     {
+        // Get remainder
         int remainder = cents % 25;
+
+        // Calculate number of quarters
         int quarters = (cents - remainder) / 25;
         return quarters;
     }
@@ -62,9 +66,13 @@ int calculate_quarters(int cents)
 
 int calculate_dimes(int cents)
 {
+    // Check if cents is greater than or equal to 10(a dime)
     if (cents >= 10)
     {
+        // Get remainder
         int remainder = cents % 10;
+
+        // Calculate number of dimes
         int dimes = (cents - remainder) / 10;
         return dimes;
     }
@@ -76,10 +84,13 @@ int calculate_dimes(int cents)
 
 int calculate_nickels(int cents)
 {
-    // TODO
+    // Check if cents is greater than or equal to 5(a nickel)
     if (cents >= 5)
     {
+        // Get remainder
         int remainder = cents % 5;
+
+        // Calculate number of nickels
         int nickels = (cents - remainder) / 5;
         return nickels;
     }
@@ -91,7 +102,7 @@ int calculate_nickels(int cents)
 
 int calculate_pennies(int cents)
 {
-    // TODO
+    // Check if cents is greater than or equal to 1(a penny)
     if (cents >= 1)
     {
         return cents;
