@@ -92,5 +92,12 @@ int calculate_nickels(int cents)
 int calculate_pennies(int cents)
 {
     // TODO
-    return cents;
+    if (cents >= 1)
+    {
+        return cents;
+    }
+    else
+    {
+        return 0;
+    }
 }
