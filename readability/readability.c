@@ -15,7 +15,7 @@ int main(void)
 int count_letters(string text)
 {
     int letters;
-    for (i = 0, n = strlen(text); i < n; i++)
+    for (int i = 0, n = strlen(text); i < n; i++)
     {
         if (!isspace(i))
         {
