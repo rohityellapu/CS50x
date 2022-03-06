@@ -5,13 +5,16 @@
 
 int count_letters(string text);
 int count_words(string text);
+int count_sentences(string text);
 int main(void)
 {
     string txt = get_string("Text: ");
     int ltrs = count_letters(txt);
     int words = count_words(txt);
+    int sentences = count_sentences(txt);
     printf("%i letters\n", ltrs);
     printf("%i words\n", words + 1);
+    printf("%i sentences\n", sentences);
 }
 
 int count_letters(string text)
