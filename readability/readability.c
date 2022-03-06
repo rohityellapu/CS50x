@@ -49,7 +49,7 @@ int count_sentences(string text)
     int sentences = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        string j = text[i];
+        char j = text[i];
         if (strcmp(j, ".") == 0 || strcmp(j, "!") == 0 || strcmp(j, "?") == 0)
         {
             sentences++;
