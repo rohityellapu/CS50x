@@ -20,8 +20,11 @@ int main(void)
     float letters = count_letters(txt);
     float words = count_words(txt);
     float sentences = count_sentences(txt);
+
     float L = letters / words * 100;
     float S = sentences / words * 100;
+
+    //  Coleman-Liau index
     float index = 0.0588 * L - 0.296 * S - 15.8;
 
     if (index < 1)
@@ -85,7 +88,7 @@ int count_sentences(string text)
         // Declare characters that ends the sentences.
         char k[] = ".?!";
 
-        // Check whether it is ending character of a sentence.
+        // Check whether it is an ending character of a sentence.
         if (j == k[0] || j == k[1] || j == k[2])
         {
             sentences++;
