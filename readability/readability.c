@@ -20,7 +20,7 @@ int count_letters(string text)
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         char j = text[i];
-        if (!isspace(j))
+        if (isalpha(j))
         {
             letters++;
         }
