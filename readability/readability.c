@@ -50,10 +50,11 @@ int count_sentences(string text)
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         char j = text[i];
-        char period = ".";
-        char question = "?";
-        char exclamation = "!";
-        if (j == period || j == question || j == exclamation)
+        // char period = ".";
+        // char question = "?";
+        // char exclamation = "!";
+        char k[] = ".?!";
+        if (j == k[0] || j == k[1] || j == k[2])
         {
             sentences++;
         }
