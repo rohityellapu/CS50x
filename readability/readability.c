@@ -11,7 +11,7 @@ int main(void)
     int ltrs = count_letters(txt);
     int words = count_words(txt);
     printf("%i letters\n", ltrs);
-    printf("%i words\n", words);
+    printf("%i words\n", words + 1);
 }
 
 int count_letters(string text)
@@ -34,7 +34,10 @@ int count_words(string text)
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         char j = text[i];
-        printf("%c %d\n", j, i);
+        if (isspace(j))
+        {
+            words++;
+        }
     }
-    return 0;
+    return words;
 }
