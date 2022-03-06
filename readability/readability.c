@@ -15,13 +15,13 @@ int main(void)
     float sentences = count_sentences(txt);
     float L = letters / words * 100;
     float S = sentences / words * 100;
-    int index = 0.0588 * L - 0.296 * S - 15.8;
+    float index = 0.0588 * L - 0.296 * S - 15.8;
     printf("%f L\n", L);
     printf("%f S\n", S);
     printf("%f letters\n", letters);
     printf("%f words\n", words);
     printf("%f sentences\n", sentences);
-    printf("%i index\n", index);
+    printf("%f index\n", index);
     if (index < 1)
     {
         printf("Before Grade 1\n");
@@ -32,7 +32,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %i\n", index);
+        printf("Grade %f\n", index);
     }
 }
 
