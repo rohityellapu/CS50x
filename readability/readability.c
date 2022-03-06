@@ -18,10 +18,10 @@ int count_letters(string text)
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         printf("%c\n", text[i]);
-        if (text[i] != "h")
-        {
-            letters++;
-        }
+        // if (text[i] != "h")
+        // {
+        //     letters++;
+        // }
     }
-    return letters;
+    return 0;
 }
