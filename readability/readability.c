@@ -50,7 +50,7 @@ int count_sentences(string text)
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         char j = text[i];
-        int k = strcmp((string)j, ".");
+        int k = strcmp(j, ".");
         if (k == 0)
         {
             sentences++;
