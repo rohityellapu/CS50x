@@ -21,7 +21,7 @@ int count_letters(string text)
         // printf("%c\n", (text[i]));
         char j = text[i];
 
-        if (isspace(char j))
+        if (isspace(j))
         {
             letters++;
         }
