@@ -13,8 +13,8 @@ int main(void)
     int letters = count_letters(txt);
     int words = count_words(txt);
     int sentences = count_sentences(txt);
-    float L = letters / words * 100;
-    float S = sentences / words * 100;
+    float L = letters / (float)words * 100;
+    float S = sentences / (float)words * 100;
     int index = 0.0588 * L - 0.296 * S - 15.8;
     printf("%i letters\n", letters);
     printf("%i words\n", words + 1);
