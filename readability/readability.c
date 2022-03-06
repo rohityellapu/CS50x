@@ -11,7 +11,7 @@ int main(void)
     string txt = get_string("Text: ");
 
     int letters = count_letters(txt);
-    float words = count_words(txt);
+    int words = count_words(txt);
     float sentences = count_sentences(txt);
     float L = letters / words;
     float S = sentences / words;
@@ -19,7 +19,7 @@ int main(void)
     printf("%f L\n", L);
     printf("%f S\n", S);
     printf("%i letters\n", letters);
-    printf("%f words\n", words + 1);
+    printf("%i words\n", words + 1);
     printf("%f sentences\n", sentences);
     printf("%f index\n", index);
 }
