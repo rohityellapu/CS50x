@@ -16,6 +16,8 @@ int main(void)
     float L = letters / (float)words * 100;
     float S = sentences / (float)words * 100;
     float index = 0.0588 * L - 0.296 * S - 15.8;
+    printf("%f L\n", L);
+    printf("%f S\n", S);
     printf("%i letters\n", letters);
     printf("%i words\n", words + 1);
     printf("%i sentences\n", sentences);
