@@ -33,8 +33,8 @@ int count_words(string text)
     int words = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        string j = text[i];
-        printf("%s\n", j);
+        char j = text[i];
+        printf("%c %d\n", j, i);
     }
     return 0;
 }
