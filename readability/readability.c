@@ -19,7 +19,7 @@ int count_letters(string text)
     {
         printf("%c\n", text[i]);
         // char chr = text[i];
-        if (strcmp((char)text[i], " ") == 0)
+        if (strcmp(const char *text[i], " ") == 0)
         {
             letters++;
         }
