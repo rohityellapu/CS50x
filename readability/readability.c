@@ -1,21 +1,22 @@
-// Libraries
+// Libraries.
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
 
-// Functions Prototypes
+// Functions Prototypes.
 int count_letters(string text);
 int count_words(string text);
 int count_sentences(string text);
 
-// Execution of code
+// Execution of code.
 int main(void)
 {
-    // Prompt the user for text
+    // Prompt the user for text.
     string txt = get_string("Text: ");
 
+    // Declare float data type variables for clean multiplication and division purposes.
     float letters = count_letters(txt);
     float words = count_words(txt);
     float sentences = count_sentences(txt);
@@ -56,14 +57,14 @@ int count_letters(string text)
     return letters;
 }
 
-// Function for counting number of words in the text
+// Function for counting number of words in the text.
 int count_words(string text)
 {
     int words = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         char j = text[i];
-        // Check whether there is a space
+        // Check whether it is a space.
         if (isspace(j))
         {
             words++;
@@ -73,7 +74,7 @@ int count_words(string text)
     return words + 1;
 }
 
-// Function for counting number of sentences in the text
+// Function for counting number of sentences in the text.
 int count_sentences(string text)
 {
     int sentences = 0;
@@ -81,7 +82,10 @@ int count_sentences(string text)
     {
         char j = text[i];
 
+        // Declare characters that ends the sentences.
         char k[] = ".?!";
+
+        // Check whether it is ending character of a sentence.
         if (j == k[0] || j == k[1] || j == k[2])
         {
             sentences++;
