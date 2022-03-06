@@ -19,12 +19,13 @@ int count_letters(string text)
     {
 
         // printf("%c\n", (text[i]));
+        char j = text[i];
 
-        // if (strcmp(const char *text[i], " ") == 0)
-        // {
-        //     letters++;
-        // }
-        letters++;
+        if (isspace(char j))
+        {
+            letters++;
+        }
+        // letters++;
     }
     return letters;
 }
