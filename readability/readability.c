@@ -53,7 +53,6 @@ int count_letters(string text)
         // Check whether the character is an alphabet or not
         if (isalpha(j))
         {
-
             letters++;
         }
     }
