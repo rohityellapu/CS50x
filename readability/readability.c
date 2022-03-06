@@ -9,7 +9,7 @@ int main(void)
 {
     string txt = get_string("Text: ");
     int ltrs = count_letters(txt);
-    printf("%i\n", ltrs);
+    printf("%i letters\n", ltrs);
 }
 
 int count_letters(string text)
@@ -18,14 +18,12 @@ int count_letters(string text)
     for (int i = 0, n = strlen(text); i < n; i++)
     {
 
-        // printf("%c\n", (text[i]));
         char j = text[i];
 
-        if (isspace(j))
+        if (!isspace(j))
         {
             letters++;
         }
-        // letters++;
     }
     return letters;
 }
