@@ -44,7 +44,7 @@ int check_key(string key)
 
 int encrypter(string text, int key)
 {
-    string encrypted = "";
+    string encrypted[];
     for (int i = 0; i < strlen(text); i++)
     {
         char letter = text[i];
@@ -52,7 +52,7 @@ int encrypter(string text, int key)
         {
             int cipher = ((int)letter + key) % 123;
 
-            printf("%i %i\n", cipher, (int)letter);
+            printf("%c %i\n", cipher, (int)letter);
         }
     }
     return 10;
