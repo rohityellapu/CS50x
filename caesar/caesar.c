@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 int check_key(string key);
-int encrypter(string text, int key);
+string encrypter(string text, int key);
 
 int main(int argc, string argv[])
 {
@@ -19,8 +19,8 @@ int main(int argc, string argv[])
             return 1;
         }
         string txt = get_string("Plaintext: ");
-        int cip = encrypter(txt, k);
-        printf("%d\n", cip);
+        string cip = encrypter(txt, k);
+        printf("%s\n", cip);
         return 0;
     }
     else
@@ -42,7 +42,7 @@ int check_key(string key)
     return atoi(key);
 }
 
-int encrypter(string text, int key)
+string encrypter(string text, int key)
 {
     string encrypted;
     for (int i = 0; i < strlen(text); i++)
