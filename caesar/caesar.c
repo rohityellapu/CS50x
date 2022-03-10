@@ -17,6 +17,7 @@ int main(int argc, string argv[])
             printf("Usage: %s key\n", argv[0]);
             return 1;
         }
+        string txt = get_string("Plaintext: \n");
         printf("%i\n", k);
         return 0;
     }
@@ -37,4 +38,16 @@ int check_key(string key)
         }
     }
     return atoi(key);
+}
+
+int encrypter(string text, int key)
+{
+    for (int i = 0; i < strlen(text);i++)
+    {
+        char letter = text[i];
+        if (isalpha(letter))
+        {
+            
+        }
+    }
 }
