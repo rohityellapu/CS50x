@@ -59,5 +59,5 @@ string encrypter(string text, int key)
             encrypted[i] = letter;
         }
     }
-    return (char)cipher;
+    return (string)cipher;
 }
