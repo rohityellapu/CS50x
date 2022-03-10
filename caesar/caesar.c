@@ -44,7 +44,7 @@ int check_key(string key)
 
 string encrypter(string text, int key)
 {
-    string encrypted = "";
+    char encrypted[];
     for (int i = 0; i < strlen(text); i++)
     {
         char letter = text[i];
