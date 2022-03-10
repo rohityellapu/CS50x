@@ -50,7 +50,7 @@ int encrypter(string text, int key)
         char letter = text[i];
         if (isalpha(letter))
         {
-            int cipher = ((int)letter + key) % 26;
+            int cipher = ((int)letter + key) % 123;
             int encrypt = cipher + (int)letter;
             printf("%i %i %i\n", encrypt, cipher, (int)letter);
         }
