@@ -12,6 +12,11 @@ int main(int argc, string argv[])
     if (argc == 2)
     {
         int k = check_key(argv[1]);
+        if (k == 1)
+        {
+            printf("Usage: %s key\n", argv[0]);
+            return 1;
+        }
         printf("%i\n", k);
         return 0;
     }
@@ -19,7 +24,6 @@ int main(int argc, string argv[])
     {
         printf("Usage: %s key\n", argv[0]);
         return 1;
-
     }
 }
 
