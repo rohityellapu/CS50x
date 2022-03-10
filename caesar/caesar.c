@@ -52,5 +52,5 @@ int encrypter(string text, int key)
             printf("%i %i\n", letter, key);
         }
     }
-    return printf("%i %i\n", letter, key);
+    return printf("%i\n", key);
 }
