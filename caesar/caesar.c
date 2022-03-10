@@ -19,8 +19,8 @@ int main(int argc, string argv[])
             return 1;
         }
         string txt = get_string("Plaintext: \n");
-        encrypter(txt, k);
-        printf("%i\n", k);
+        int cipher = encrypter(txt, k);
+        printf("%i %i\n", k, cipher);
         return 0;
     }
     else
@@ -49,8 +49,9 @@ int encrypter(string text, int key)
         char letter = text[i];
         if (isalpha(letter))
         {
-            printf("%i %i\n", letter, key);
+            int cipher = ((int)letter + key) % 26;
+
         }
     }
-    return printf("%i\n", key);
+    return cipher;
 }
