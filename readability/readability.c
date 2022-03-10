@@ -87,7 +87,7 @@ int count_sentences(string text)
         // Declare characters that ends the sentences.
         char k[] = ".?!";
 
-        // Check whether it is an ending character of a sentence.
+        // Check whether it is an ending character in a sentence.
         if (j == k[0] || j == k[1] || j == k[2])
         {
             sentences++;
