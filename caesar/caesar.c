@@ -19,8 +19,8 @@ int main(int argc, string argv[])
             return 1;
         }
         string txt = get_string("Plaintext: ");
-        string cip = encrypter(txt, k);
-        printf("%s\n", cip);
+        int cip = encrypter(txt, k);
+        printf("%d\n", cip);
         return 0;
     }
     else
