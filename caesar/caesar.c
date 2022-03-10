@@ -13,12 +13,12 @@ int main(int argc, string argv[])
     if (argc == 2)
     {
         int k = check_key(argv[1]);
-        if (k == 1)
+        if (k == 10)
         {
             printf("Usage: %s key\n", argv[0]);
             return 1;
         }
-        string txt = get_string("Plaintext: \n");
+        string txt = get_string("Plaintext: ");
         int cipher = encrypter(txt, k);
         printf("%i %i\n", k, cipher);
         return 0;
@@ -36,7 +36,7 @@ int check_key(string key)
     {
         if (!isdigit(key[i]))
         {
-            return 1;
+            return 10;
         }
     }
     return atoi(key);
@@ -51,8 +51,8 @@ int encrypter(string text, int key)
         if (isalpha(letter))
         {
             int cipher = ((int)letter + key) % 123;
-            int encrypt = cipher + (int)letter;
-            printf("%i %i %i\n", encrypt, cipher, (int)letter);
+
+            printf("%i %i\n", cipher, (int)letter);
         }
     }
     return 10;
