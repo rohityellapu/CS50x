@@ -44,15 +44,16 @@ int check_key(string key)
 
 int encrypter(string text, int key)
 {
-    int cipher;
+
     for (int i = 0; i < strlen(text); i++)
     {
         char letter = text[i];
         if (isalpha(letter))
         {
-            cipher = ((int)letter + key) % 26;
-            printf("%i\n", cipher);
+            int cipher = ((int)letter + key) % 26;
+            letter = cipher;
+            printf("%c\n", letter);
         }
     }
-    return cipher;
+    return 10;
 }
