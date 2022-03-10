@@ -44,13 +44,14 @@ int check_key(string key)
 
 string encrypter(string text, int key)
 {
-    string encrypted;
+    string encrypted = NULL;
+    int cipher;
     for (int i = 0; i < strlen(text); i++)
     {
         char letter = text[i];
         if (isalpha(letter))
         {
-            int cipher = ((int)letter + key) % 123;
+            cipher = ((int)letter + key) % 123;
             encrypted[i] = (char)cipher;
         }
         else
@@ -58,5 +59,5 @@ string encrypter(string text, int key)
             encrypted[i] = letter;
         }
     }
-    return encrypted;
+    return (char)cipher;
 }
