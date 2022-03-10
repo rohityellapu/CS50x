@@ -49,7 +49,8 @@ int encrypter(string text, int key)
         char letter = text[i];
         if (isalpha(letter))
         {
-            return printf("$i %i\n", letter, key);
+            printf("%i %i\n", letter, key);
         }
     }
+    return printf("%i %i\n", letter, key);
 }
