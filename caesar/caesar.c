@@ -25,7 +25,7 @@ int main(int argc, string argv[])
             if (isalpha(l))
             {
                 int cipher = encrypter(l, k);
-                printf("%i\n", cipher);
+                
                 txt[i] = cipher;
             }
         }
@@ -56,12 +56,12 @@ int encrypter(char letter, int key)
     int cipher;
     if (isupper(letter))
     {
-        cipher = ((int)letter + key) / 91;
+        cipher = ((int)letter + key)%91;
         return cipher;
     }
     else
     {
-        cipher = ((int)letter + key);
+        cipher = ((int)letter + key)%123;
         return cipher;
     }
 }
