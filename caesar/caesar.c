@@ -11,10 +11,10 @@ int encrypter(char text, int key);
 
 int main(int argc, string argv[])
 {
-    // Check whether there are only two arguments in total
+    // Make sure whether there is only one command-line-argument
     if (argc == 2)
     {
-        //
+        //Ensure every character in argv[1] i.e. key is a digit
         int k = check_key(argv[1]);
         if (k == 10)
         {
