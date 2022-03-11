@@ -25,8 +25,8 @@ int main(int argc, string argv[])
             if (isalpha(l))
             {
                 int cipher = encrypter(l, k);
-                
-                txt[i] = cipher;
+
+                txt[i] = (char)cipher;
             }
         }
         printf("%s\n", txt);
