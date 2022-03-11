@@ -16,7 +16,7 @@ int main(int argc, string argv[])
     {
 
         int k = check_key(argv[1]);
-        
+        // Checking if the argv[1] is a digit
         if (k == 10)
         {
             // Print the correct usage of the command-line-argument
@@ -25,14 +25,18 @@ int main(int argc, string argv[])
         }
         // Prompt the user for Plaintext
         string txt = get_string("Plaintext: ");
+        // Looping through every character in the txt
         for (int i = 0; i < strlen(txt); i++)
         {
             char l = txt[i];
+            // Make sure the character is an alphabet.
             if (isalpha(l))
             {
+                // Getting the cipher character from given key through function
                 int cipher = encrypter(l, k);
                 printf("%i\n", cipher);
 
+                // rotate the character with ciphertext
                 txt[i] = (char)cipher;
             }
         }
@@ -53,26 +57,28 @@ int check_key(string key)
     {
         if (!isdigit(key[i]))
         {
+            // Return 10(any number) if the character is not a number.
             return 10;
         }
     }
+    // Returning converted string(into number)
     return atoi(key);
 }
 
+// Encrypting plaintext into ciphertext by given key
 int encrypter(char letter, int key)
 {
     int cipher;
     key %= 26;
+    // If the character is UpperCased
     if (isupper(letter))
-
     {
-
+        //  Caesar's algorithm
         cipher = ((int)letter + key) % 91;
         if (cipher < 26)
         {
             cipher += 65;
         }
-
         return cipher;
     }
     else
@@ -82,7 +88,6 @@ int encrypter(char letter, int key)
         {
             cipher += 97;
         }
-
         return cipher;
     }
 }
