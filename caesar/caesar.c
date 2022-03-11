@@ -53,11 +53,13 @@ string encrypter(string text, int key)
         {
             cipher = ((int)letter + key) % 123;
             encrypted[i] = (char)cipher;
+
         }
         else
         {
             encrypted[i] = letter;
         }
     }
-    return (string)cipher;
+    printf("%s\n", encrypted);
+    return encrypted;
 }
