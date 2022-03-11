@@ -61,14 +61,22 @@ int encrypter(char letter, int key)
         if (cipher < 26)
         {
             cipher += 65;
-        }else if(cipher >)
+        }else if(cipher > 26 && cipher < 65)
+        {
+            cipher %= 26;
+            cipher += 65;
+        }
         return cipher;
     }
     else
     {
         cipher = ((int)letter + key) % 123;
-        if (cipher < 97)
+        if (cipher < 26)
         {
+            cipher += 97;
+        }else if(cipher > 26 && cipher < 97)
+        {
+            cipher %= 26;
             cipher += 97;
         }
         return cipher;
