@@ -61,13 +61,14 @@ int encrypter(char letter, int key)
     {
 
         cipher = ((int)letter + key) % 91;
+        if (cipher < 26);
 
         return cipher;
     }
     else
     {
         cipher = ((int)letter + key) % 123;
-        
+
         return cipher;
     }
 }
