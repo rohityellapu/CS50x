@@ -44,7 +44,7 @@ int check_key(string key)
 
 string encrypter(string text, int key)
 {
-    string encrypted = NULL;
+    char encrypted[100];
     int cipher;
     for (int i = 0; i < strlen(text); i++)
     {
