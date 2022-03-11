@@ -60,7 +60,7 @@ int encrypter(char letter, int key)
         cipher = ((int)letter + key) % 91;
         if (cipher < 65)
         {
-            cipher += 64;
+            cipher += 65;
         }
         return cipher;
     }
@@ -69,7 +69,7 @@ int encrypter(char letter, int key)
         cipher = ((int)letter + key) % 123;
         if (cipher < 97)
         {
-            cipher += 96;
+            cipher += 97;
         }
         return cipher;
     }
