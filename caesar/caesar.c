@@ -57,12 +57,12 @@ int encrypter(char letter, int key)
     int cipher;
     if (isupper(letter))
     {
-        cipher = ((int)letter + key)%91;
+        cipher = ((int)letter + key) % 91;
         return cipher;
     }
     else
     {
-        cipher = ((int)letter + key)%123;
+        cipher = ((int)letter + key) % 123;
         return cipher;
     }
 }
