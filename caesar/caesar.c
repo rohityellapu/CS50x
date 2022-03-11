@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 int check_key(string key);
-int encrypter(string text, int key);
+int encrypter(char text, int key);
 
 int main(int argc, string argv[])
 {
@@ -24,8 +24,9 @@ int main(int argc, string argv[])
             char l = txt[i];
             if (isalpha(l))
             {
-                cipher = encrypted(txt, k);
-                text[i] = (char)cipher;
+                int cipher = encrypter(l, k);
+                printf("%i\n", cipher);
+                txt[i] = cipher;
             }
         }
         printf("%s\n", txt);
@@ -60,7 +61,7 @@ int encrypter(char letter, int key)
     }
     else
     {
-        cipher = ((int)letter + key) / 123;
+        cipher = ((int)letter + key);
         return cipher;
     }
 }
