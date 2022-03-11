@@ -14,7 +14,7 @@ int main(int argc, string argv[])
     // Make sure whether there is only one command-line-argument
     if (argc == 2)
     {
-        //Ensure every character in argv[1] i.e. key is a digit
+        
         int k = check_key(argv[1]);
         if (k == 10)
         {
@@ -43,6 +43,7 @@ int main(int argc, string argv[])
     }
 }
 
+//Ensure every character in argv[1] i.e. key is a digit
 int check_key(string key)
 {
     for (int i = 0; i < strlen(key); i++)
