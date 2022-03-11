@@ -14,13 +14,16 @@ int main(int argc, string argv[])
     // Make sure whether there is only one command-line-argument
     if (argc == 2)
     {
-        
+
         int k = check_key(argv[1]);
+        
         if (k == 10)
         {
+            // Print the correct usage of the command-line-argument
             printf("Usage: %s key\n", argv[0]);
             return 1;
         }
+        // Prompt the user for Plaintext
         string txt = get_string("Plaintext: ");
         for (int i = 0; i < strlen(txt); i++)
         {
