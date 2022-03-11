@@ -25,11 +25,12 @@ int main(int argc, string argv[])
             if (isalpha(l))
             {
                 int cipher = encrypter(l, k);
+                printf("%i\n", cipher);
 
                 txt[i] = (char)cipher;
             }
         }
-        printf("%s\n", txt);
+        printf("Ciphertext: %s\n", txt);
         return 0;
     }
     else
