@@ -55,30 +55,19 @@ int check_key(string key)
 int encrypter(char letter, int key)
 {
     int cipher;
+    key %= 26;
     if (isupper(letter))
+
     {
+
         cipher = ((int)letter + key) % 91;
-        if (cipher < 26)
-        {
-            cipher += 65;
-        }else if(cipher > 26 && cipher < 65)
-        {
-            cipher %= 26;
-            cipher += 65;
-        }
+
         return cipher;
     }
     else
     {
         cipher = ((int)letter + key) % 123;
-        if (cipher < 26)
-        {
-            cipher += 97;
-        }else if(cipher > 26 && cipher < 97)
-        {
-            cipher %= 26;
-            cipher += 97;
-        }
+        
         return cipher;
     }
 }
