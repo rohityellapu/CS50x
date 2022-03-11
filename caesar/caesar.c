@@ -11,9 +11,10 @@ int encrypter(char text, int key);
 
 int main(int argc, string argv[])
 {
-    // 
+    // Check whether there are only two arguments in total
     if (argc == 2)
     {
+        //
         int k = check_key(argv[1]);
         if (k == 10)
         {
