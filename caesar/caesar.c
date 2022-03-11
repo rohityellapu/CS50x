@@ -1,15 +1,17 @@
+// Libraries
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
 
+// Function Prototypes
 int check_key(string key);
 int encrypter(char text, int key);
 
 int main(int argc, string argv[])
 {
-    // printf("%i %s\n", argc, argv[1]);
+    // 
     if (argc == 2)
     {
         int k = check_key(argv[1]);
