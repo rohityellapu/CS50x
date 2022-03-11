@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 int check_key(string key);
-string encrypter(string text, int key);
+int encrypter(string text, int key);
 
 int main(int argc, string argv[])
 {
@@ -19,12 +19,16 @@ int main(int argc, string argv[])
             return 1;
         }
         string txt = get_string("Plaintext: ");
-        for (int i = 0; i < strlen(txt);i++)
+        for (int i = 0; i < strlen(txt); i++)
         {
             char l = txt[i];
-
+            if (isalpha(l))
+            {
+                cipher = encrypted(txt, k);
+                text[i] = (char)cipher;
+            }
         }
-            printf("%s\n", cip);
+        printf("%s\n", txt);
         return 0;
     }
     else
@@ -48,11 +52,15 @@ int check_key(string key)
 
 int encrypter(char letter, int key)
 {
-    if (isalpha(letter))
+    int cipher;
+    if (isupper(letter))
     {
-        if (isupper(letter))
-        {
-
-        }else if(islower)
+        cipher = ((int)letter + key) / 91;
+        return cipher;
+    }
+    else
+    {
+        cipher = ((int)letter + key) / 123;
+        return cipher;
     }
 }
