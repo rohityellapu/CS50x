@@ -1,10 +1,10 @@
 sort1 uses: Swap Sort
 
-How do you know?: 
+How do you know?: It takes less than a second everytime when sorting through Sorted50000.txt and took more than 3 seconds in sorting other two 50000.txt. Means there is no Swaping happening when it is already sorted.
 
 sort2 uses: Merge Sort
 
-How do you know?: TODO
+How do you know?: It takes less than a second everytime when sorting through every 50000.txt files.
 
 sort3 uses: Selected Sort
 
