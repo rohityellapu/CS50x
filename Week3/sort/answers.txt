@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Swap Sort
 
 How do you know?: TODO
 
-sort2 uses: TODO
+sort2 uses: Merge Sort
 
 How do you know?: TODO
 
-sort3 uses: TODO
+sort3 uses: Selected Sort
 
 How do you know?: TODO
