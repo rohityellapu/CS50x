@@ -11,4 +11,4 @@ How do you know?: It takes less than a second everytime when sorting through eve
 sort3 uses: Selected Sort
 
 How do you know?: It always takes more than 3 seconds when sorting any type of 50000.txt file. It means it is the highest time taken sorting method for any given type of data.
-(Upperbound: O(n^2), Lowerbound: O(n^2))
+(Upperbound and Lowerbound: Theta(n^2))
