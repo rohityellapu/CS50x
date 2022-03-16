@@ -55,7 +55,7 @@ int main(int argc, string argv[])
         if (!vote(name))
         {
             printf("Invalid vote.\n");
-            name = get_string("Vote: ");
+
         }
     }
 
@@ -82,5 +82,6 @@ bool vote(string name)
 void print_winner(void)
 {
     // TODO
+    
     return;
 }
