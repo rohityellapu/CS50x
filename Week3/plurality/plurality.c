@@ -55,6 +55,7 @@ int main(int argc, string argv[])
         if (!vote(name))
         {
             printf("Invalid vote.\n");
+            name = get_string("Vote: ");
         }
     }
 
