@@ -55,7 +55,6 @@ int main(int argc, string argv[])
         if (!vote(name))
         {
             printf("Invalid vote.\n");
-
         }
     }
 
@@ -69,7 +68,7 @@ bool vote(string name)
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(candidates[i].name, name) ==0)
+        if (strcmp(candidates[i].name, name) == 0)
         {
             candidates[i].votes += 1;
             return true;
@@ -82,6 +81,6 @@ bool vote(string name)
 void print_winner(void)
 {
     // TODO
-    
+
     return;
 }
