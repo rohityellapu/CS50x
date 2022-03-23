@@ -69,30 +69,37 @@ bool vote(string name)
     // Iterate over each candidate
     for (int i = 0; i < candidate_count; i++)
     {
+        // Check if candidate matches to the votes person
         if (strcmp(candidates[i].name, name) == 0)
         {
+            // If yes increment candidate votes and return true
             candidates[i].votes += 1;
             return true;
         }
     }
+    // If voted name doesn't match to the candidate name return false
     return false;
 }
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
+    // declate max votes
     int max_votes = 0;
-    // TODO
+    // Iterate over each candidate
     for (int i = 0; i < candidate_count; i++)
     {
+        // Check whether the candidate has more votes than max_votes
         if (candidates[i].votes > max_votes)
         {
+            // Update max votes
             max_votes = candidates[i].votes;
         }
-
     }
+
     for (int i = 0; i < candidate_count; i++)
     {
+        // Print all candidates whose votes are equal to max votes
         if (candidates[i].votes == max_votes)
         {
             printf("%s\n", candidates[i].name);
