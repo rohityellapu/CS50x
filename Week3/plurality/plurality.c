@@ -87,24 +87,24 @@ void print_winner(void)
     {
         if (candidates[i].votes > candidates[i - 1].votes)
         {
-            winner[i] = candidates[i].name;
+            winners[i] = candidates[i].name;
         }
         else if (candidates[i].votes == candidates[i - 1].votes)
         {
-            winner[i - 1] = candidates[i].name;
+            winners[i - 1] = candidates[i].name;
         }
         else
         {
-            winner[i] = candidates[i - 1].name;
+            winners[i] = candidates[i - 1].name;
         }
     }
     for (int i = 0; i < MAX; i++)
     {
-        if (winner[i])
+        if (winners[i])
         {
-            printf("%s\n", winner[i]);
+            printf("%s\n", winners[i]);
         }
     }
-    printf("%s\n", winner);
+    // printf("%s\n", winner);
     return;
 }
