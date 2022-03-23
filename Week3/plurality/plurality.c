@@ -100,10 +100,10 @@ void print_winner(void)
     }
     for (int i = 0; i < MAX; i++)
     {
-        if (winners[i])
-        {
-            printf("%s\n", winners[i]);
-        }
+        // if (winners[i])
+        // {
+        printf("%s\n", winners[i]);
+        // }
     }
     // printf("%s\n", winner);
     return;
