@@ -87,15 +87,15 @@ void print_winner(void)
     {
         if (candidates[i].votes > candidates[i - 1].votes)
         {
-            winners[0] = candidates[i].name;
+            winners[i] = candidates[i].name;
         }
         else if (candidates[i].votes == candidates[i - 1].votes)
         {
-            winners[1] = candidates[i].name;
+            winners[i-1] = candidates[i-1].name;
         }
         else
         {
-            winners[0] = candidates[i - 1].name;
+            winners[i] = candidates[i - 1].name;
         }
     }
     for (int i = 0; i < MAX; i++)
