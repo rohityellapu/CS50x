@@ -167,7 +167,11 @@ void tabulate(void)
 bool print_winner(void)
 {
     // TODO
-    return false;
+    for (int i = 0; i < candidate_count;i++)
+    {
+        
+    }
+        return false;
 }
 
 // Return the minimum number of votes any remaining candidate has
