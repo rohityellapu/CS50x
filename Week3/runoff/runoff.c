@@ -206,7 +206,7 @@ bool is_tie(int min)
             winners++;
         }
     }
-    if (winners > 1)
+    if (winners > 1 && < 3)
     {
         return true;
     }
