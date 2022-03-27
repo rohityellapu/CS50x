@@ -201,17 +201,12 @@ bool is_tie(int min)
     int winners = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes == min)
+        if (candidates[i].votes != min)
         {
-            winners++;
+            return false;
         }
     }
-    if (winners > 1 && < 3)
-    {
-        return true;
-    }
-
-    return false;
+    return true;
 }
 
 // Eliminate the candidate (or candidates) in last place
