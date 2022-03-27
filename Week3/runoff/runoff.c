@@ -15,8 +15,7 @@ typedef struct
     string name;
     int votes;
     bool eliminated;
-}
-candidate;
+} candidate;
 
 // Array of candidates
 candidate candidates[MAX_CANDIDATES];
@@ -129,14 +128,15 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
     // TODO
-    for (int i = 0; i < candidate_count;i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i].name) ==0)
+        if (strcmp(name, candidates[i].name) == 0)
         {
-            preferences
+            preferences[voter][rank] = name;
+            return true;
         }
     }
-        return false;
+    return false;
 }
 
 // Tabulate votes for non-eliminated candidates
