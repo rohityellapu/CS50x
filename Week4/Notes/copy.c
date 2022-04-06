@@ -15,7 +15,7 @@ int main(void)
     {
         return 1;
     }
-    strcopy(t, s);
+    strcpy(t, s);
 
     if (strlen(t) > 1)
     {
