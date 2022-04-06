@@ -8,6 +8,6 @@ int main(void)
 
     int numbers[] = {4,5 ,5, 4,3,2, 7,};
 
-    printf("%p\n", &numbers[1]);
+    printf("%p\n", &s[1]);
     printf("%i\n", *numbers);
 }
