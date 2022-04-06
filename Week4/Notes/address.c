@@ -3,6 +3,6 @@
 
 int main(void)
 {
-    char *s = "HI!";
-
+    char *s = "HI!!";
+    printf("%p\n", *s[2]);
 }
