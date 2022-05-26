@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 
     int16_t buffer;
 
-    fread(&buffer, HEADER)
+    fread(&buffer, )
 
     // Close files
     fclose(input);
