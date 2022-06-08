@@ -80,17 +80,16 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     for (int i = 0; i < height; i++)
     {
         int n = width;
-        int end = width - 1
-        for (int j = 0; j < n; j++)
+        int end = width - 1 for (int j = 0; j < n / 2; j++)
         {
             RGBTRIPLE tmp;
-            tmp[i][j] = image[i][end];
+            tmp = image[i][end];
             image[i][end] = image[i][j];
-            image[i][j] = tmp[i][j];
+            image[i][j] = tmp;
             end--;
         }
     }
-        return;
+    return;
 }
 
 // Blur image
