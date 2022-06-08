@@ -80,7 +80,8 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     for (int i = 0; i < height; i++)
     {
         int n = width;
-        int end = width - 1 for (int j = 0; j < n / 2; j++)
+        int end = width - 1;
+        for (int j = 0; j < n / 2; j++)
         {
             RGBTRIPLE tmp;
             tmp = image[i][end];
