@@ -47,7 +47,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             // (*pixel).rgbtBlue = sepiaBlue;
             // (*pixel).rgbtGreen = sepiaGreen;
             // (*pixel).rgbtRed = sepiaRed;
-            // // RGBTRIPLE *pixel = &image[i][j];
+            RGBTRIPLE *pixel = &image[i][j];
             image[i][j].rgbtBlue = round(0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue);
             image[i][j].rgbtGreen = round(0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue);
             image[i][j].rgbtRed = round(0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue);
