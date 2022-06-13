@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typdef uint8_t BYTE;
-
+#define BLOCK 512
 
 int main(int argc, char *argv[])
 {
@@ -16,11 +16,20 @@ int main(int argc, char *argv[])
 
     if (input == NULL)
     {
-        printf("Could not open %s.\n", image);
+        printf("Could not open %s.\n", argv[1]);
         return 2;
     }
 
     char recoverd_image[8];
 
+    BYTE *buffer = malloc(BLOCK * sizeof(BYTE));
+    if (buffer = NULL)
+    {
+        printf("No enough memort to store image.\n");
+        return 3;
+    }
 
+    FILE *jpg = NULL;
+
+    
 }
