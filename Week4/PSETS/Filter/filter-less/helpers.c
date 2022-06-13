@@ -169,9 +169,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             }
 
             // Average the pixel with surrounded neighbhor pixels
-            image[i][j].rgbtRed = round(red / count);
-            image[i][j].rgbtGreen = round(green / count);
-            image[i][j].rgbtBlue = round(blue / count);
+            image[i][j].rgbtRed = round(red / count * 1.0);
+            image[i][j].rgbtGreen = round(green / count * 1.0);
+            image[i][j].rgbtBlue = round(blue / count * 1.0);
         }
     }
     return;
