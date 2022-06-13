@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typdef uint8_t BYTE;
+
+
 int main(int argc, char *argv[])
 {
     if (argc != 2)
@@ -19,5 +22,5 @@ int main(int argc, char *argv[])
 
     char recoverd_image[8];
 
-    
+
 }
