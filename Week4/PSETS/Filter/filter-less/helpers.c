@@ -106,8 +106,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             green += image[i][j].rgbtGreen;
             blue += image[i][j].rgbtBlue;
             count++;
-
+        // Check if pixel exists directly above the current pixel
         if ( i - 1 >= 0)
+        {
+            red += image[i - 1][j].rgbtRed;
+            green += image[i - 1][j].rgbtGreen;
+            blue += image[i - 1][j].rgbtBlue;
+            count++;
+        }
+        //Check if pixel exists diagnally left above the current pixel
+
+        if (i - 1 >= 0 && )
+
 
 
         }
