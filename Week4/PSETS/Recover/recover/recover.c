@@ -30,9 +30,14 @@ int main(int argc, char *argv[])
     }
 
     FILE *jpg = NULL;
+    int jpg_count = 0;
 
     while (fread(buffer, sizeof(buffer), 1, input) == 1)
     {
-        
+
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] == )
+        sprintf(recovered_image, "%.3i.jpg", jpg_count);
+
+
     }
 }
