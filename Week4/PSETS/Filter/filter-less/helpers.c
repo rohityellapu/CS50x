@@ -7,12 +7,12 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     // for every row
     for (int i = 0; i < height; i++)
     {
-        // for every width
+        // for every column
         for (int j = 0; j < width; j++)
         {
             // for every pixel
 
-            
+
             // Get the average of RGB values.
             int avg = round((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0);
             // Put the RGB values to average value in the pixel
@@ -67,7 +67,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         int end = width - 1;
         for (int j = 0; j < n / 2; j++)
         {
+            // create a temporary RGBTRIPLE type pixel.
             RGBTRIPLE tmp;
+            // swap the front pixel value with end pixel vice-versa.
             tmp = image[i][end];
             image[i][end] = image[i][j];
             image[i][j] = tmp;
@@ -85,7 +87,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int count = 0, red = 0, green = 0, blue = 0;
-
+            // for current pixel.
             red += image[i][j].rgbtRed;
             green += image[i][j].rgbtGreen;
             blue += image[i][j].rgbtBlue;
@@ -157,6 +159,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 count++;
             }
 
+            // Average the pixel with surrounded neighbhor pixels
             image[i][j].rgbtRed = round(red / count);
             image[i][j].rgbtGreen = round(green / count);
             image[i][j].rgbtBlue = round(blue / count);
