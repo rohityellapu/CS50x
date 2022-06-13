@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 typedef uint8_t BYTE;
 #define BLOCK 512
@@ -20,10 +21,10 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    char recoverd_image[8];
+    char recovered_image[8];
 
     BYTE *buffer = malloc(BLOCK * sizeof(BYTE));
-    if (buffer = NULL)
+    if (buffer == NULL)
     {
         printf("No enough memort to store image.\n");
         return 3;
