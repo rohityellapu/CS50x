@@ -52,5 +52,15 @@ int main(int argc, char *argv[])
 
             jpg_count++;
         }
+        else if (jpg_count > 0)
+        {
+            fwrite(buffer, sizeof(buffer), 1, jpg);
+        }
     }
+
+    free(buffer);
+
+    fclose(input);
+
+    fclose(jpg);
 }
