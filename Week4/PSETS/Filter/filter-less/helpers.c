@@ -122,7 +122,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[i + 1][j].rgbtBlue;
                 count++;
             }
-              // Check if pixel exists directly left the current pixel
+            // Check if pixel exists directly left the current pixel
             if (j - 1 >= 0)
             {
                 red += image[i][j - 1].rgbtRed;
@@ -156,15 +156,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 count++;
             }
 
-             // Check if pixel exists diagnally left below the current pixel
-            if (j - 1 >= 0 && i + 1< height)
+            // Check if pixel exists diagnally left below the current pixel
+            if (j - 1 >= 0 && i + 1 < height)
             {
                 red += image[i + 1][j - 1].rgbtRed;
                 green += image[i + 1][j - 1].rgbtGreen;
                 blue += image[i + 1][j - 1].rgbtBlue;
                 count++;
             }
-             // Check if pixel exists diagnally right below the current pixel
+            // Check if pixel exists diagnally right below the current pixel
             if (j + 1 < width && i + 1 < height)
             {
                 red += image[i + 1][j + 1].rgbtRed;
@@ -173,7 +173,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 count++;
             }
 
-            
+            image[i][j].rgbtRed = round(red / counter);
+            image[i][j].rgbtGreen = round(green / counter);
+            image[i][j].rgbtBlue = round(blue / counter);
         }
     }
     return;
