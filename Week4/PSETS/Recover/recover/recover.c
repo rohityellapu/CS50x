@@ -31,5 +31,5 @@ int main(int argc, char *argv[])
 
     FILE *jpg = NULL;
 
-    
+    while (fread(buffer, 1, sizeof(buffer), input))
 }
