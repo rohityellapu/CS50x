@@ -8,6 +8,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+            
             RGBTRIPLE *pixel = &image[i][j];
             int avg = round(((*pixel).rgbtBlue + (*pixel).rgbtGreen + (*pixel).rgbtRed) / 3.0);
 
@@ -26,7 +27,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            //
+            // Using Sepia algorithm, get new RGB values.
             int blue = round(0.272 * image[i][j].rgbtRed + 0.534 * image[i][j].rgbtGreen + 0.131 * image[i][j].rgbtBlue);
             int green = round(0.349 * image[i][j].rgbtRed + 0.686 * image[i][j].rgbtGreen + 0.168 * image[i][j].rgbtBlue);
             int red = round(0.393 * image[i][j].rgbtRed + 0.769 * image[i][j].rgbtGreen + 0.189 * image[i][j].rgbtBlue);
@@ -43,7 +44,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             {
                 green = 255;
             }
-
+            // Put the new Sepia RGB values in the pixel.
             image[i][j].rgbtRed = red;
             image[i][j].rgbtGreen = green;
             image[i][j].rgbtBlue = blue;
