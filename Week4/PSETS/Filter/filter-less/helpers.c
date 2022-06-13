@@ -114,6 +114,30 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[i - 1][j].rgbtBlue;
                 count++;
             }
+            // Check if pixel exists directly below the current pixel
+            if (i + 1 < height)
+            {
+                red += image[i + 1][j].rgbtRed;
+                green += image[i + 1][j].rgbtGreen;
+                blue += image[i + 1][j].rgbtBlue;
+                count++;
+            }
+              // Check if pixel exists directly left the current pixel
+            if (j - 1 >= 0)
+            {
+                red += image[i][j - 1].rgbtRed;
+                green += image[i][j - 1].rgbtGreen;
+                blue += image[i][j - 1].rgbtBlue;
+                count++;
+            }
+            // Check if pixel exists directly right the current pixel
+            if (j + 1 < width)
+            {
+                red += image[i][j + 1].rgbtRed;
+                green += image[i][j + 1].rgbtGreen;
+                blue += image[i][j + 1].rgbtBlue;
+                count++;
+            }
             // Check if pixel exists diagnally left above the current pixel
 
             if (i - 1 >= 0 && j - 1 >= 0)
@@ -131,14 +155,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[i - 1][j + 1].rgbtBlue;
                 count++;
             }
-              // Check if pixel exists directly left the current pixel
-            if (j - 1 >= 0)
-            {
-                red += image[i][j - 1].rgbtRed;
-                green += image[i][j - 1].rgbtGreen;
-                blue += image[i][j - 1].rgbtBlue;
-                count++;
-            }
+
              // Check if pixel exists diagnally left below the current pixel
             if (j - 1 >= 0 && i + 1< height)
             {
@@ -147,6 +164,16 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 blue += image[i + 1][j - 1].rgbtBlue;
                 count++;
             }
+             // Check if pixel exists diagnally right below the current pixel
+            if (j + 1 < width && i + 1 < height)
+            {
+                red += image[i + 1][j + 1].rgbtRed;
+                green += image[i + 1][j + 1].rgbtGreen;
+                blue += image[i + 1][j + 1].rgbtBlue;
+                count++;
+            }
+
+            
         }
     }
     return;
