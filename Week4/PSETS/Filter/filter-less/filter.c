@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     }
 
     // Ensure proper usage
-    if (argc != optind + 2)
+    if (argc != optgind + 2)
     {
         printf("Usage: ./filter [flag] infile outfile\n");
         return 3;
