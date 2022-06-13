@@ -9,17 +9,15 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    char *image = argv[1];
-
-    FILE *input = fopen(image, "r");
+    FILE *input = fopen(argv[1], "r");
 
     if (input == NULL)
     {
         printf("Could not open %s.\n", image);
         return 2;
     }
+
+    char recoverd_image[8];
+
     
-
-
-
 }
