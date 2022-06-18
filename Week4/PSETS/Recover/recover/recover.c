@@ -45,23 +45,26 @@ int main(int argc, char *argv[])
     int jpg_count = 0;
 
     // Read through entire card untill last Block
-    // fread returns 
+    // fread returns number of items of size 512 bytes of Block that were read
     while (fread(buffer, sizeof(buffer), 1, input) == 1)
     {
-
+        // header signature of jpg image
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
 
             if (jpg_count > 0)
             {
+                // close current output file
                 fclose(jpg);
-
             }
 
+            // write name of the output file (example - "000.jpg")
             sprintf(recovered_image, "%.3i.jpg", jpg_count);
 
+            // open jpg file
             jpg = fopen(recovered_image, "w");
 
+            // write new BLOCK of file to output image
             fwrite(buffer, sizeof(buffer), 1, jpg);
 
             jpg_count++;
