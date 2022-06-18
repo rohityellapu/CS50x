@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-// define new BYTE type
 typedef uint8_t BYTE;
 
 #define BLOCK 512
@@ -26,10 +25,10 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    // declare name of the image
+    // declare name of the output image
     char recovered_image[8];
 
-    // allocate storage for buffer in the memory
+    // allocate storage for buffer in the memory (512 bytes - 1 block)
     BYTE *buffer = malloc(BLOCK * sizeof(BYTE));
 
     // End program if there isn't enough memory
@@ -41,9 +40,12 @@ int main(int argc, char *argv[])
 
     // Point the image address to NULL
     FILE *jpg = NULL;
+
+    // counter
     int jpg_count = 0;
 
-    
+    // Read through entire card untill last Block
+    // fread returns 
     while (fread(buffer, sizeof(buffer), 1, input) == 1)
     {
 
