@@ -69,15 +69,20 @@ int main(int argc, char *argv[])
 
             jpg_count++;
         }
+
+        // Check if still writing jpg
         else if (jpg_count > 0)
         {
             fwrite(buffer, sizeof(buffer), 1, jpg);
         }
     }
 
+    // free buffer
     free(buffer);
 
+    // close input file
     fclose(input);
 
+    // close output file
     fclose(jpg);
 }
