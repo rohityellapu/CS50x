@@ -44,7 +44,7 @@ int main(void)
     n->next = NULL;
 
     list->next->next = n;
-
+    // Insert a new node in the middle of the list
     n = malloc(sizeof(node));
     if (n == NULL)
     {
