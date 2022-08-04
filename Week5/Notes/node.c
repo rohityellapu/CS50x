@@ -45,6 +45,14 @@ int main(void)
 
     list->next->next = n;
 
+    n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        return 1;
+    }
+
+    
+
     for (node *tmp = list; tmp != NULL; tmp = tmp->next)
     {
         printf("Number is, %i\n", tmp->number);
@@ -56,5 +64,6 @@ int main(void)
         free(list);
         list = tmp;
     }
+
     return 0;
 }
