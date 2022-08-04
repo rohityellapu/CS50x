@@ -52,8 +52,8 @@ int main(void)
     }
 
     n->number = 4;
-    n->next = list;
-    list = n;
+    n->next = list->next;
+    list->next = n;
 
     for (node *tmp = list; tmp != NULL; tmp = tmp->next)
     {
