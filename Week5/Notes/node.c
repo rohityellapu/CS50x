@@ -47,12 +47,12 @@ int main(void)
 
     for (node *tmp = list; tmp != NULL; tmp = tmp->next)
     {
-        printf('Number is, %i\n', tmp->number);
+        printf("Number is, %i\n", tmp->number);
     }
 
-    while (tmp != NULL)
+    while (list != NULL)
     {
-        node *tmp = list - next;
+        node *tmp = list->next;
         free(list);
         list = tmp;
     }
