@@ -12,7 +12,7 @@
     "tomoki1207.pdf", 
     "vsls-contrib.gitdoc"
   ], 
-  "image": "ghcr.io/cs50/codespace:8fd6e6735968c4923888c43aafa343fbc6570831", 
+  "image": "ghcr.io/cs50/codespace:84a49942f5ea6e26bbdd1abe0b3fd114b53429f7", 
   "postCreateCommand": "/opt/cs50/bin/postCreateCommand", 
   "settings": {
     "C_Cpp.autocomplete": "Disabled", 
@@ -54,6 +54,7 @@
     "extension-uninstaller.uninstall": [
       "github.copilot", 
       "github.copilot-nightly", 
+      "ms-toolsai.jupyter", 
       "tabnine.tabnine-vscode"
     ], 
     "extensions.ignoreRecommendations": true, 
