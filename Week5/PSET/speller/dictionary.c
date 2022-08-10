@@ -3,6 +3,10 @@
 #include <ctype.h>
 #include <stdbool.h>
 #include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <stdint.h>
+
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -50,7 +54,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int hash = 0;
-    for (let i = 0, n = strlen(word); i < n; i++)
+    for (int i = 0, n = strlen(word); i < n; i++)
     {
         hash = (hash << 2) ^ word[i];
     }
@@ -61,7 +65,20 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    return false;
+    FILE *dic = fopen(dictionary, "r");
+    if(dic == NULL)
+    {
+        return false;
+    }
+
+    for (int i = 0; i < N;i++)
+     {
+         table[i] = NULL;
+     }
+
+     char word[LENGTH + 1];
+     while (fscanf(dic, '%s', word) != EOF)
+     return false;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
