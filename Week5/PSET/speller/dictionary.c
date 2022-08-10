@@ -16,8 +16,17 @@ node;
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26000;
 
+// Number of words in dictionary
+unsigned int words = 0;
+
 // Hash table
 node *table[N];
+
+// Single node
+node *getNode(const char *key)
+{
+    node *n = malloc(sizeof)
+}
 
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
