@@ -78,6 +78,15 @@ bool load(const char *dictionary)
 
      char word[LENGTH + 1];
      while (fscanf(dic, '%s', word) != EOF)
+     {
+         unsigned int key = hash(word);
+
+         node *head = % table[key];
+
+         insertNode(head, word);
+
+         words++;
+     }
      return false;
 }
 
