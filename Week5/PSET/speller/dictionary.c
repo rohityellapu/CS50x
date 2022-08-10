@@ -81,7 +81,7 @@ bool load(const char *dictionary)
      {
          unsigned int key = hash(word);
 
-         node *head = % table[key];
+         node **head = &table[key];
 
          insertNode(head, word);
 
