@@ -3,7 +3,7 @@
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-#include <stdbool.h>
+#include <stdbool.h> // for bool
 
 // Maximum length for a word
 // (e.g., pneumonoultramicroscopicsilicovolcanoconiosis)
