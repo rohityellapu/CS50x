@@ -42,6 +42,18 @@ node *getNode(const char *key)
     return n;
 }
 
+// Pass pointer to pointer for head node
+void insertNode(node **head, const char *key)
+{
+    node *n = getNOde(key);
+
+    if(*head != NULL)
+    {
+        n->next = *head;
+    }
+    *head = n;
+}
+
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
