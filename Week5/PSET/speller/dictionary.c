@@ -50,11 +50,11 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int hash = 0;
-    for (let i = 0, n = strlen(word); i < n;i++)
+    for (let i = 0, n = strlen(word); i < n; i++)
     {
         hash = (hash << 2) ^ word[i];
     }
-        return toupper(word[0]) - 'A';
+    return hash % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
