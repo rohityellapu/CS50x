@@ -2,7 +2,7 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <string.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -10,8 +10,7 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26000;
@@ -25,7 +24,18 @@ node *table[N];
 // Single node
 node *getNode(const char *key)
 {
-    node *n = malloc(sizeof)
+    node *n = malloc(sizeof(node));
+    if (n == NULL)
+    {
+        printf('No enough memory for linked list node.');
+        return n;
+    }
+
+    strcopy(n->word, key);
+
+    n->next = NULL;
+
+    return n;
 }
 
 // Returns true if word is in dictionary, else false
