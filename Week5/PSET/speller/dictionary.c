@@ -111,7 +111,7 @@ bool load(const char *dictionary)
     }
 
     char word[LENGTH + 1];
-    while (fscanf(dic, '%s', word) != EOF)
+    while (fscanf(dic, "%s", word) != EOF)
     {
         unsigned int key = hash(word);
 
@@ -150,7 +150,7 @@ bool unload(void)
         {
             continue;
         }
-        unloader(table[i])
+        unloader(table[i]);
     }
     return true;
 }
