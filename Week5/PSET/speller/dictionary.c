@@ -58,6 +58,18 @@ void insertNode(node **head, const char *key)
 bool check(const char *word)
 {
     // TODO
+    char copy[strlen(word) + 1];
+    strcpy(copy, word);
+
+    char *p = copy;
+    for (; *p;++p)
+    {
+        *p = tolower(*p);
+    }
+
+    unsigned int key = hash(copy);
+
+    node *
     return false;
 }
 
