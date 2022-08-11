@@ -1,5 +1,5 @@
 insomia
 winder
 dandelions
-prettir
+prettier
 ---------------
