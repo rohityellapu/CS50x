@@ -71,7 +71,7 @@ bool check(const char *word)
 
     node *t = table[key];
 
-    while (*t != NULL)
+    while (t != NULL)
     {
         if (strcmp(copy, t->word) == 0)
         {
