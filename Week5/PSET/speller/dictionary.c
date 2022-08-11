@@ -35,7 +35,7 @@ node *getNode(const char *key)
         return n;
     }
 
-    strcopy(n->word, key);
+    strcpy(n->word, key);
 
     n->next = NULL;
 
@@ -45,7 +45,7 @@ node *getNode(const char *key)
 // Pass pointer to pointer for head node
 void insertNode(node **head, const char *key)
 {
-    node *n = getNOde(key);
+    node *n = getNode(key);
 
     if (*head != NULL)
     {
