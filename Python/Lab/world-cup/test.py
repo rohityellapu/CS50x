@@ -7,7 +7,7 @@ def main():
     f = open(sys.argv[1])
     data = csv.DictReader(f)
     print(data)
-    close(f)
+
 
 
 
