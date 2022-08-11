@@ -121,7 +121,8 @@ bool load(const char *dictionary)
 
         words++;
     }
-    return false;
+    fclose(dic);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
