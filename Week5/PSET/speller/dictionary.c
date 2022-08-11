@@ -31,7 +31,7 @@ node *getNode(const char *key)
     node *n = malloc(sizeof(node));
     if (n == NULL)
     {
-        printf('No enough memory for linked list node.');
+        printf("No enough memory for linked list node.");
         return n;
     }
 
