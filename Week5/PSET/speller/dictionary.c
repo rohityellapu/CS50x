@@ -47,7 +47,7 @@ void insertNode(node **head, const char *key)
 {
     node *n = getNOde(key);
 
-    if(*head != NULL)
+    if (*head != NULL)
     {
         n->next = *head;
     }
@@ -62,7 +62,7 @@ bool check(const char *word)
     strcpy(copy, word);
 
     char *p = copy;
-    for (; *p;++p)
+    for (; *p; ++p)
     {
         *p = tolower(*p);
     }
@@ -71,14 +71,15 @@ bool check(const char *word)
 
     node *t = table[key];
 
-    while(*t != NULL)
+    while (*t != NULL)
     {
         if (strcmp(copy, t->word) == 0)
         {
             return true;
         }
-        
+        t = t->next;
     }
+
     return false;
 }
 
@@ -99,40 +100,57 @@ bool load(const char *dictionary)
 {
     // TODO
     FILE *dic = fopen(dictionary, "r");
-    if(dic == NULL)
+    if (dic == NULL)
     {
         return false;
     }
 
-    for (int i = 0; i < N;i++)
-     {
-         table[i] = NULL;
-     }
+    for (int i = 0; i < N; i++)
+    {
+        table[i] = NULL;
+    }
 
-     char word[LENGTH + 1];
-     while (fscanf(dic, '%s', word) != EOF)
-     {
-         unsigned int key = hash(word);
+    char word[LENGTH + 1];
+    while (fscanf(dic, '%s', word) != EOF)
+    {
+        unsigned int key = hash(word);
 
-         node **head = &table[key];
+        node **head = &table[key];
 
-         insertNode(head, word);
+        insertNode(head, word);
 
-         words++;
-     }
-     return false;
+        words++;
+    }
+    return false;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    return words;
+}
+
+void unloader(node *n)
+{
+    if (n->next != NULL)
+    {
+        unloader(n->next);
+    }
+    free(n);
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
     // TODO
-    return false;
+    for (int i = 0; i < N; i++)
+    {
+        if (table[i] == NULL)
+        {
+            continue;
+        }
+        unloader(table[i])
+    }
+    return true;
 }
