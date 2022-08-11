@@ -6,9 +6,8 @@ def main():
         sys.exit("Usage: pythonfile.py filename\n")
     with open(sys.argv[1]) as file:
         read = csv.DictReader(file)
-    ls = []
-    ls.append(read)
-    print(ls)
+        for row in read:
+            print(row)
 
 
 
