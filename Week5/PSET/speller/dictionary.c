@@ -69,7 +69,16 @@ bool check(const char *word)
 
     unsigned int key = hash(copy);
 
-    node *
+    node *t = table[key];
+
+    while(*t != NULL)
+    {
+        if (strcmp(copy, t->word) == 0)
+        {
+            return true;
+        }
+        
+    }
     return false;
 }
 
