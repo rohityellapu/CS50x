@@ -9,7 +9,7 @@ def main():
         read = csv.DictReader(file)
         for row in read:
             row['rating'] = int(row['rating'])
-            teams.append(row)
+            teams.append(row['team'])
     print(teams)
 
 
