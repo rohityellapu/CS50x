@@ -23,7 +23,7 @@ def main():
         read = csv.DictReader(file)
         for row in read:
             row['rating'] = int(row['rating'])
-            teams.append(row['team'])
+            teams.append(row)
             counts[row['team']] = 0
 
     # Print each team's chances of winning, according to simulation
