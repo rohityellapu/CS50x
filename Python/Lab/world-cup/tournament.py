@@ -24,7 +24,7 @@ def main():
         for row in read:
             row['rating'] = int(row['rating'])
             teams.append(row)
-            counts[row['team']] = 0
+
 
     for i in range(N):
         winner = simulate_tournament(teams)
