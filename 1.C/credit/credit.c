@@ -13,6 +13,8 @@ int main(void)
     }
 
     int card = check_card_type(card_number);
+    bool ans = is_valid(card_number);
+    printf("%b\n", ans);
 }
 
 int check_card_type(long number)
@@ -57,8 +59,19 @@ bool is_valid(long number)
                     sum += product % 10;
                     product /= 10;
                 }
-                
+                product = sum;
             }
+            even_last_sum += product;
+        }
+        else
+        {
+            odd_last_sum += remainder;
         }
     }
+    int total_sum = odd_last_sum + even_last_sum;
+    if (total_sum % 10 == 0)
+    {
+        return true;
+    }
+    return false;
 }
