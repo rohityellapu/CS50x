@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int check_card_type(long number);
-bool is_valid(long number);
+bool is_legit(long number);
 bool is_amex(long number);
 bool is_master(long number);
 bool is_visa(long number);
@@ -15,11 +15,8 @@ int main(void)
         card_number = get_long("Number: ");
     }
 
-    int card = check_card_type(card_number);
-    if(is_valid(card_number))
-    {
-        printf("Yes\n");
-    }
+
+
 }
 
 int check_card_type(long number)
