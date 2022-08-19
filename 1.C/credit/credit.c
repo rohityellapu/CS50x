@@ -16,7 +16,7 @@ int main(void)
     if(card == 0)
     {
         printf("INVALID\n");
-        return 1;
+        return 0;
     }
     else if(card == 1)
     {
