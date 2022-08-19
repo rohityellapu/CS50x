@@ -87,6 +87,7 @@ bool is_legit(long number)
     return false;
 }
 
+// Returns the type of the card if it is
 int check_card_type(long number)
 {
     int first_digit, second_digit, total_digits = 0;
