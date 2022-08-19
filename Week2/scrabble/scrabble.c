@@ -29,11 +29,13 @@ int compute_score(string word)
     int score = 0;
     for (int i = 0; i < strlen(word);i++)
     {
+        int letterIndex = (int)word[i];
+        printf("%i\n", letterIndex);
         if(islower(word[i]))
         {
             word[i] = toupper(word[i]);
         }
-        int letterIndex = (int)word[i];
+        letterIndex = (int)word[i];
         printf("%i\n", letterIndex);
         int letterScore = POINTS[letterIndex];
         // if (!isalpha(word[i]))
