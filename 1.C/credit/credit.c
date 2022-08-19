@@ -3,9 +3,6 @@
 
 int check_card_type(long number);
 bool is_legit(long number);
-bool is_amex(long number);
-bool is_master(long number);
-bool is_visa(long number);
 
 int main(void)
 {
@@ -16,9 +13,28 @@ int main(void)
     }
 
     int card = check_card_type(card_number);
-    if (is_valid(card_number))
+    if (is_legit(card_number))
     {
-        printf("Yes\n");
+        if(card == 0)
+        {
+            printf("INVALID\n");
+        }
+        else if (card == 1)
+        {
+            printf("AMEX\n");
+        }
+        else if (card == 2)
+        {
+            printf("MASTERCARD\n");
+        }
+        else if (card == 3)
+        {
+            printf("VISA\n");
+        }
+    }
+    else
+    {
+        printf("INVALID\n");
     }
 }
 
@@ -64,7 +80,7 @@ int check_card_type(long number)
     }
 }
 
-bool is_valid(long number)
+bool is_legit(long number)
 {
     int odd_last_sum = 0, even_last_sum = 0;
     for (int i = 1; number > 0; i++, number /= 10)
