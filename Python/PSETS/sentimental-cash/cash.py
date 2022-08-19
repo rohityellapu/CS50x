@@ -2,9 +2,11 @@
 
 from cs50 import get_float
 
-change = get_float("Change owed: ")
 
-total_cents = change * 100
+def main():
+    change = get_float("Change owed: ")
+
+    total_cents = change * 100
 
 quarter = 25
 dime = 10
