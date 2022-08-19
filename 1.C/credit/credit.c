@@ -67,7 +67,7 @@ int check_card_type(long number)
         }
         if (first_digit == 5)
         {
-            if (second_digit < 5 && second_digit > 0)
+            if (second_digit < 6 && second_digit > 0)
             {
                 return 2;
             }
