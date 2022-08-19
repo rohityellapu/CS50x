@@ -9,8 +9,8 @@ def main():
         change = get_float("Change owed: ")
 
     cents = change*100
-    print(cents)
-    quarters = calculate_quarters(cents)
+    print(cents%25)
+    quarters = calculate_quarters(700)
     cents -= quarters*25
     print(quarters)
     dimes = calculate_dimes(cents)
@@ -28,7 +28,7 @@ def main():
 def calculate_quarters(cents):
     quarter = 25
     if cents >= quarter:
-        return cents%quarter
+        return cents % quarter
     else:
         return 0
 
