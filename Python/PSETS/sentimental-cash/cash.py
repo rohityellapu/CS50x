@@ -2,7 +2,7 @@
 
 from cs50 import get_float
 
-
+# Driver function
 def main():
     # Prompt the user for owed change
     change = get_float("Change owed: ")
@@ -73,6 +73,7 @@ def calculate_pennies(cents):
         return cents
     else:
         return 0
+
 
 main()
 
