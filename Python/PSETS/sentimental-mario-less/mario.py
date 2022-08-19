@@ -1,10 +1,11 @@
 # TODO
 from cs50 import get_int
 
-blocks = get_int("Height: ")
-while blocks < 1 or blocks > 8:
-    blocks = get_int("Height: ")
+height = get_int("Height: ")
+while height < 1 or height > 8:
+    height = get_int("Height: ")
 
-for i in range(0, blocks):
-    for j in range(0,blocks - i):
+for i in range(height):
+    for j in range(height):
+        if j < i:
         print(" ", end= "")
