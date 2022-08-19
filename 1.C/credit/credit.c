@@ -3,6 +3,9 @@
 
 int check_card_type(long number);
 bool is_valid(long number);
+bool is_amex(long number);
+bool is_master(long number);
+bool is_visa(long number);
 
 int main(void)
 {
@@ -71,7 +74,6 @@ bool is_valid(long number)
         }
     }
     int total_sum = odd_last_sum + even_last_sum;
-    printf("%i, %i, %i\n", odd_last_sum, even_last_sum, total_sum);
     if (total_sum % 10 == 0)
     {
         return true;
