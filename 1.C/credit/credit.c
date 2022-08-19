@@ -71,6 +71,7 @@ bool is_valid(long number)
         }
     }
     int total_sum = odd_last_sum + even_last_sum;
+    printf("%i, %i, %i\n", odd_last_sum, even_last_sum, total_sum);
     if (total_sum % 10 == 0)
     {
         return true;
