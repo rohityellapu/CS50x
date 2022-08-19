@@ -13,8 +13,36 @@ int main(void)
     }
 
     int card = check_card_type(card_number);
-    bool ans = is_valid(card_number);
-    printf("%i\n", ans);
+    if(card == 0)
+    {
+        printf("INVALID\n");
+        return 1;
+    }
+    else if(card == 1)
+    {
+        if (is_valid(card_number))
+        {
+            printf("AMEX\n");
+        }
+    }
+    else if(card == 2)
+    {
+        if (is_valid(card_number))
+        {
+            printf("MASTERCARD\n");
+        }
+    }
+    else if(card == 3)
+    {
+        if (is_valid(card_number))
+        {
+            printf("VISA\n");
+        }
+    }
+    else
+    {
+        printf("INVALID\n");
+    }
 }
 
 int check_card_type(long number)
