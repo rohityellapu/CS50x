@@ -14,7 +14,7 @@ int main(void)
 
     int card = check_card_type(card_number);
     bool ans = is_valid(card_number);
-    printf("%b\n", ans);
+    printf("%i\n", ans);
 }
 
 int check_card_type(long number)
