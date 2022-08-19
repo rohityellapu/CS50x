@@ -15,7 +15,7 @@ int main(void)
     int card = check_card_type(card_number);
     if (is_legit(card_number))
     {
-        if(card == 0)
+        if (card == 0)
         {
             printf("INVALID\n");
         }
@@ -74,10 +74,7 @@ int check_card_type(long number)
         }
     }
 
-    else
-    {
-        return 0;
-    }
+    return 0;
 }
 
 bool is_legit(long number)
