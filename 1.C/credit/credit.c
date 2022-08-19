@@ -58,7 +58,7 @@ bool is_legit(long number)
             // Multiplying the digit with 2
             int product = remainder * 2;
 
-            // Summing the digits of product if it is two digit
+            // Summing the digits of product if it is a two digit number
             if (product > 9)
             {
                 int sum = 0;
@@ -73,7 +73,7 @@ bool is_legit(long number)
         }
         else
         {
-            // Sum of all other digit numbers which are not multiply by 2.
+            // Sum of all other digit numbers which are not multiplied by 2.
             odd_last_sum += remainder;
         }
     }
