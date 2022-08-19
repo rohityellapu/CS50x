@@ -35,11 +35,15 @@ int check_card_type(long number)
         total_digits++;
         number /= 10;
     }
-    if (first_digit == 3)
+    if (total_digits == 15)
     {
-        return 1;
+        int first_two = first_digit * 10 + second_digit;
+        if(first_two == 34 || first_two == 37)
+        {
+            return 1;
+        }
     }
-    else if (first_digit == 5)
+    else if (total_digits == 13)
     {
         return 2;
     }
