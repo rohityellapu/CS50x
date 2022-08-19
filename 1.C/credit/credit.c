@@ -3,5 +3,6 @@
 
 int main(void)
 {
-    int cardNumber = get_long()
+    int cardNumber = get_long("Number: \n");
+    while (cardNumber)
 }
