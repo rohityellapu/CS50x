@@ -49,7 +49,14 @@ bool is_valid(long number)
         if (i % 2 == 0)
         {
             int product = remainder * 2;
-            
+            if (product > 9)
+            {
+                int sum = 0;
+                for (let i = 10; product > 0; product /= 10)
+                {
+                    sum += product % 10;
+                }
+            }
         }
     }
 }
