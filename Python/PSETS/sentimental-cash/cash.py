@@ -2,6 +2,7 @@
 
 from cs50 import get_float
 
+
 # Driver function
 def main():
     # Prompt the user for owed change
@@ -36,6 +37,7 @@ def main():
     # Print the least number of coins required
     print(round(total_coins))
 
+
 # Calculates the number of quarters by taking cents as input
 def calculate_quarters(cents):
     quarter = 25
@@ -45,6 +47,7 @@ def calculate_quarters(cents):
         return coins
     else:
         return 0
+
 
 # Calculates the number of dimes by taking cents as input
 def calculate_dimes(cents):
@@ -56,6 +59,7 @@ def calculate_dimes(cents):
     else:
         return 0
 
+
 # Calculates the number of pennies by taking cents as input
 def calculate_nickels(cents):
     nickel = 5
@@ -66,6 +70,7 @@ def calculate_nickels(cents):
     else:
         return 0
 
+
 # Calculates the number of pennies by taking cents as input
 def calculate_pennies(cents):
     penny = 1
@@ -75,5 +80,6 @@ def calculate_pennies(cents):
         return 0
 
 
+# Driver function invokation
 main()
 
