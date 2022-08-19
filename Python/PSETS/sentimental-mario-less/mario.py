@@ -6,5 +6,5 @@ while blocks < 1 or blocks > 8:
     blocks = get_int("Height: ")
 
 for i in range(0, blocks):
-    for j in range(0,i):
+    for j in range(0,blocks - i):
         print(" ", end= "")
