@@ -50,7 +50,7 @@ int check_card_type(long number)
             return 3;
         }
         if(first_digit == 5){
-            if(second_digit = )
+            if(second_digit < 5)
         }
     }
 
