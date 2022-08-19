@@ -14,10 +14,10 @@ int main(void)
     {
         card_number = get_long("Number: ");
     }
-    
+
     if (is_legit(card_number))
     {
-         int card = check_card_type(card_number);
+        int card = check_card_type(card_number);
         if (card == 0)
         {
             printf("INVALID\n");
