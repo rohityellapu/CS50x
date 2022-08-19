@@ -19,6 +19,8 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+
+    // Check who has higher score and print the winner
     if (score1 > score2)
     {
         printf("Player 1 wins!\n");
@@ -29,6 +31,7 @@ int main(void)
     }
     else
     {
+        // Printing Tie if both the Players has equal scores
         printf("Tie!\n");
     }
 }
@@ -36,22 +39,33 @@ int main(void)
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
+
+    // Initialise score of word
     int score = 0;
     for (int i = 0; i < strlen(word); i++)
     {
-
+        // Convert every lower character to upper
         if (islower(word[i]))
         {
             word[i] = toupper(word[i]);
         }
+
+        // Get the index of word in POINTS by pariting ASCII values of character
         int letterIndex = (int)word[i] % 65;
 
+        // Score of each character in the word
         int letterScore = POINTS[letterIndex];
+
+        // Update score eaual to 0 if it is not an alphabet
         if (!isalpha(word[i]))
         {
             letterScore = 0;
         }
+
+        // Sum all the letter scores to word score
         score += letterScore;
     }
+
+    // Return the total Score of the word
     return score;
 }
