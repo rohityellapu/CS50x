@@ -48,13 +48,16 @@ bool is_legit(long number)
     // Sum of odd digit placed number and even digit placed number*2 from last
     int odd_last_sum = 0, even_last_sum = 0;
 
-    // For each digit in the number
+    // For each digit in the number.
     for (int i = 1; number > 0; i++, number /= 10)
     {
         int remainder = number % 10;
         if (i % 2 == 0)
         {
+            // Multiplying the digit with 2
             int product = remainder * 2;
+
+            // Summing the digits of product if it is two digit
             if (product > 9)
             {
                 int sum = 0;
@@ -69,6 +72,7 @@ bool is_legit(long number)
         }
         else
         {
+            // Sum of all other digit numbers
             odd_last_sum += remainder;
         }
     }
