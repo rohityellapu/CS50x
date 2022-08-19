@@ -6,15 +6,18 @@ bool is_legit(long number);
 
 int main(void)
 {
+    // Prompt the user for Card Number.
     long card_number = get_long("Number: ");
+
+    // Prompt forever untill valid input number.
     while (card_number < 0)
     {
         card_number = get_long("Number: ");
     }
 
-    int card = check_card_type(card_number);
     if (is_legit(card_number))
     {
+         int card = check_card_type(card_number);
         if (card == 0)
         {
             printf("INVALID\n");
