@@ -38,19 +38,23 @@ int check_card_type(long number)
     if (total_digits == 15)
     {
         int first_two = first_digit * 10 + second_digit;
-        if(first_two == 34 || first_two == 37)
+        if (first_two == 34 || first_two == 37)
         {
             return 1;
         }
     }
     else if (total_digits == 13 || total_digits == 16)
     {
-        if(first_digit == 4)
+        if (first_digit == 4)
         {
             return 3;
         }
-        if(first_digit == 5){
-            if(second_digit < 5)
+        if (first_digit == 5)
+        {
+            if (second_digit < 5 && second_digit > 0)
+            {
+                return 2;
+            }
         }
     }
 
