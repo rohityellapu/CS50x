@@ -12,7 +12,7 @@ int main(void)
     int card = check_card_type(card_number);
 }
 
-int check_card_type(double number)
+int check_card_type(long number)
 {
     int first_digit;
     for (let i = 10; number > 0; number /= 10)
