@@ -19,8 +19,8 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
-    printf(score1);
-    printf(score2);
+    printf("%i, %i\n", score1, score2);
+
 }
 
 int compute_score(string word)
@@ -31,7 +31,7 @@ int compute_score(string word)
     {
         if(islower(word[i]))
         {
-            word[i] = toupper(word[i])
+            word[i] = toupper(word[i]);
         }
         int letterIndex = 65 % (int)word[i];
         int letterScore = POINTS[letterIndex];
