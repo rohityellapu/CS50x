@@ -12,7 +12,7 @@ int main(void)
     }
 
     int card = check_card_type(card_number);
-    printf("%i\n", card);
+
 }
 
 int check_card_type(long number)
