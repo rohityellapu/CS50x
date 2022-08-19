@@ -31,9 +31,10 @@ int compute_score(string word)
     {
         if(islower(word[i]))
         {
-            toupper(word[i]);
+            word[i] = toupper(word[i]);
         }
         int letterIndex = 65 % (int)word[i];
+        printf("%i\n", letterIndex);
         int letterScore = POINTS[letterIndex];
         // if (!isalpha(word[i]))
         // {
