@@ -3,11 +3,15 @@
 
 int main(void)
 {
-    int cardNumber = get_long("Number: \n");
-    while (cardNumber < 0)
+    int card_umber = get_long("Number: \n");
+    while (card_number < 0)
     {
-        cardNumber = get_long("Number: \n");
+        card_number = get_long("Number: \n");
     }
 
 }
 
+int check_card_type(number)
+{
+    int first
+}
