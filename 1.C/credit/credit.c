@@ -43,14 +43,17 @@ int check_card_type(long number)
             return 1;
         }
     }
-    else if (total_digits == 13)
+    else if (total_digits == 13 || total_digits == 16)
     {
-        return 2;
+        if(first_digit == 4)
+        {
+            return 3;
+        }
+        if(first_digit == 5){
+            if(second_digit = )
+        }
     }
-    else if (first_digit == 4)
-    {
-        return 3;
-    }
+
     else
     {
         return 0;
