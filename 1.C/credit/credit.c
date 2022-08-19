@@ -24,10 +24,11 @@ int main(void)
 
 int check_card_type(long number)
 {
-    int first_digit;
+    int first_digit, second_digit, total_digits = 0;
     for (int i = 10; number > 0; number /= 10)
     {
         first_digit = number % i;
+        total_digits++;
     }
     if (first_digit == 3)
     {
