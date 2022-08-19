@@ -12,18 +12,18 @@ def main():
 
     quarters = calculate_quarters(cents)
     cents -= quarters*25
-    print(quarters)
+
     dimes = calculate_dimes(cents)
     cents -= dimes*10
-    print(dimes)
+
     nickels = calculate_nickels(cents)
     cents -= nickels*5
-    print(nickels)
+
     pennies = calculate_pennies(cents)
     cents -= pennies*1
-    print(cents)
+
     total_coins = quarters + dimes + nickels + pennies
-    print(total_coins)
+    print(round(total_coins))
 
 def calculate_quarters(cents):
     quarter = 25
