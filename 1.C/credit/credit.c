@@ -2,6 +2,9 @@
 #include <stdio.h>
 
 int check_card_type(long number);
+bool is_amex(long number);
+bool is_master(long number);
+bool is_visa(long number);
 
 int main(void)
 {
