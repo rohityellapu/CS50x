@@ -31,14 +31,14 @@ int compute_score(string word)
     {
         if(islower(word[i]))
         {
-            word[i] = toupper(word[i]);
+            toupper(word[i]);
         }
         int letterIndex = 65 % (int)word[i];
         int letterScore = POINTS[letterIndex];
-        if (!isalpha(word[i]))
-        {
-            letterScore = 0;
-        }
+        // if (!isalpha(word[i]))
+        // {
+        //     letterScore = 0;
+        // }
         score += letterScore;
     }
     return score;
