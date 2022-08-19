@@ -10,9 +10,13 @@ while height < 1 or height > 8:
 
 # For each row in the pyramid
 for i in range(height):
+    # For each column in the pyramid
     for j in range(height-1, -1, -1):
+        # Print space
         if j > i:
-            print(" ", end= "")
+            print(" ", end="")
+        # Print blocks
         else:
             print("#", end="")
+    # Print next line
     print()
