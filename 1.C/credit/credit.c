@@ -15,7 +15,7 @@ int main(void)
     {
         card_number = get_long("Number: ");
     }
-
+    // Check whether the number is legit according to Luhn's Algorithm
     if (is_legit(card_number))
     {
         int card = check_card_type(card_number);
@@ -76,8 +76,10 @@ bool is_legit(long number)
             odd_last_sum += remainder;
         }
     }
-    // Total sum of 
+    // Total sum
     int total_sum = odd_last_sum + even_last_sum;
+
+    // If the last digit of sum ends with 0 return true
     if (total_sum % 10 == 0)
     {
         return true;
