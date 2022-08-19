@@ -27,9 +27,13 @@ int compute_score(string word)
     int score = 0;
     for (int i = 0; i < strlen(word);i++)
     {
-        if(isLower(word[i]))
+        if(islower(word[i]))
         {
-            
+            word[i] = toupper(word[i])
         }
+        int letterIndex = 65 % (int)word[i];
+        int letterScore = POINTS[letterIndex];
+        score += letterScore;
     }
+    return score;
 }
