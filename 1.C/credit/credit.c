@@ -16,7 +16,7 @@ int main(void)
     }
 
     int card = check_card_type(card_number);
-    if(is_valid(card_number))
+    if (is_valid(card_number))
     {
         printf("Yes\n");
     }
@@ -25,10 +25,15 @@ int main(void)
 int check_card_type(long number)
 {
     int first_digit, second_digit, total_digits = 0;
-    for (int i = 10; number > 0; number /= 10)
+    while (number > 0)
     {
-        first_digit = number % i;
+        first_digit = number % 10;
+        if (number > 9 && number < 100)
+        {
+            second_digit = number % 10;
+        }
         total_digits++;
+        number /= 10;
     }
     if (first_digit == 3)
     {
@@ -51,7 +56,7 @@ int check_card_type(long number)
 bool is_valid(long number)
 {
     int odd_last_sum = 0, even_last_sum = 0;
-    for (int i = 1; number > 0;i++, number /= 10)
+    for (int i = 1; number > 0; i++, number /= 10)
     {
         int remainder = number % 10;
         if (i % 2 == 0)
@@ -60,7 +65,7 @@ bool is_valid(long number)
             if (product > 9)
             {
                 int sum = 0;
-                while(product>0)
+                while (product > 0)
                 {
                     sum += product % 10;
                     product /= 10;
