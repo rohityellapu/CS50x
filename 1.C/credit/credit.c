@@ -15,8 +15,11 @@ int main(void)
         card_number = get_long("Number: ");
     }
 
-
-
+    int card = check_card_type(card_number);
+    if(is_valid(card_number))
+    {
+        printf("Yes\n");
+    }
 }
 
 int check_card_type(long number)
