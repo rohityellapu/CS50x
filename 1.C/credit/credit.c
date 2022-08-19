@@ -72,10 +72,11 @@ bool is_legit(long number)
         }
         else
         {
-            // Sum of all other digit numbers
+            // Sum of all other digit numbers which are not multiply by 2.
             odd_last_sum += remainder;
         }
     }
+    // Total sum of 
     int total_sum = odd_last_sum + even_last_sum;
     if (total_sum % 10 == 0)
     {
