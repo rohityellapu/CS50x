@@ -7,5 +7,8 @@ while height < 1 or height > 8:
 
 for i in range(height):
     for j in range(height):
-        if j < i:
-        print(" ", end= "")
+        if j >= i:
+            print(" ", end= "")
+        else:
+            print("#", end="")
+    print()
