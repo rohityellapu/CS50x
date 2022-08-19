@@ -56,7 +56,7 @@ int compute_score(string word)
         // Score of each character in the word
         int letterScore = POINTS[letterIndex];
 
-        // Update score eaual to 0 if it is not an alphabet
+        // Update score equal to 0 if it is not an alphabet
         if (!isalpha(word[i]))
         {
             letterScore = 0;
