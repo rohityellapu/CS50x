@@ -18,6 +18,7 @@ int main(void)
     // Check whether the number is legit according to Luhn's Algorithm
     if (is_legit(card_number))
     {
+        // Checks for AMEX, MASTERCARD AND VISA cards
         int card = check_card_type(card_number);
         if (card == 0)
         {
@@ -87,7 +88,7 @@ bool is_legit(long number)
     return false;
 }
 
-// Returns the type of the card if it is
+// Returns an integer representing the various card number usage by different card providers.
 int check_card_type(long number)
 {
     int first_digit, second_digit, total_digits = 0;
@@ -101,6 +102,7 @@ int check_card_type(long number)
         total_digits++;
         number /= 10;
     }
+    // Checks if it is an American Express Card
     if (total_digits == 15)
     {
         int first_two = first_digit * 10 + second_digit;
@@ -109,12 +111,15 @@ int check_card_type(long number)
             return 1;
         }
     }
+    // Checks for Mastercard and VISA
     else if (total_digits == 13 || total_digits == 16)
     {
+        // Checks for VISA
         if (first_digit == 4)
         {
             return 3;
         }
+        // Checks for MasterCard
         if (first_digit == 5)
         {
             if (second_digit < 6 && second_digit > 0)
