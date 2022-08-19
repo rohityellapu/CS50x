@@ -9,7 +9,7 @@ def main():
         change = get_float("Change owed: ")
 
     cents = change*100
-
+    print(cents)
     quarters = calculate_quarters(cents)
     cents -= quarters*25
     print(quarters)
