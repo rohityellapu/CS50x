@@ -1,8 +1,9 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int check_card_type(long number);
 bool is_legit(long number);
+int check_card_type(long number);
+
 
 int main(void)
 {
@@ -39,6 +40,44 @@ int main(void)
     {
         printf("INVALID\n");
     }
+}
+
+// Luhn's Algorithm checks whether card is legit or not.
+bool is_legit(long number)
+{
+    // Sum of odd digit placed number and even digit placed number*2 from last
+    int odd_last_sum = 0, even_last_sum = 0;
+
+    // For each digit in the number
+    for (int i = 1; number > 0; i++, number /= 10)
+    {
+        int remainder = number % 10;
+        if (i % 2 == 0)
+        {
+            int product = remainder * 2;
+            if (product > 9)
+            {
+                int sum = 0;
+                while (product > 0)
+                {
+                    sum += product % 10;
+                    product /= 10;
+                }
+                product = sum;
+            }
+            even_last_sum += product;
+        }
+        else
+        {
+            odd_last_sum += remainder;
+        }
+    }
+    int total_sum = odd_last_sum + even_last_sum;
+    if (total_sum % 10 == 0)
+    {
+        return true;
+    }
+    return false;
 }
 
 int check_card_type(long number)
@@ -78,38 +117,4 @@ int check_card_type(long number)
     }
 
     return 0;
-}
-
-bool is_legit(long number)
-{
-    int odd_last_sum = 0, even_last_sum = 0;
-    for (int i = 1; number > 0; i++, number /= 10)
-    {
-        int remainder = number % 10;
-        if (i % 2 == 0)
-        {
-            int product = remainder * 2;
-            if (product > 9)
-            {
-                int sum = 0;
-                while (product > 0)
-                {
-                    sum += product % 10;
-                    product /= 10;
-                }
-                product = sum;
-            }
-            even_last_sum += product;
-        }
-        else
-        {
-            odd_last_sum += remainder;
-        }
-    }
-    int total_sum = odd_last_sum + even_last_sum;
-    if (total_sum % 10 == 0)
-    {
-        return true;
-    }
-    return false;
 }
