@@ -1,21 +1,24 @@
 #include <cs50.h>
 #include <stdio.h>
 
+int check_card_type(long number);
+
 int main(void)
 {
-    int card_number = get_long("Number: \n");
+    long card_number = get_long("Number: ");
     while (card_number < 0)
     {
-        card_number = get_long("Number: \n");
+        card_number = get_long("Number: ");
     }
 
     int card = check_card_type(card_number);
+    printf("%i\n", card);
 }
 
 int check_card_type(long number)
 {
     int first_digit;
-    for (let i = 10; number > 0; number /= 10)
+    for (int i = 10; number > 0; number /= 10)
     {
         first_digit = number % i;
     }
