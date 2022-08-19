@@ -5,10 +5,15 @@ from cs50 import get_float
 
 def main():
     change = get_float("Change owed: ")
+    while change < 0:
+        change = get_float("Change owed: ")
 
-    total_cents = change * 100
+    cents = change * 100
 
-quarter = 25
+
+def calculate_quarters(cents):
+    quarter = 25
+    
 dime = 10
 nickel = 5
 penny = 1
