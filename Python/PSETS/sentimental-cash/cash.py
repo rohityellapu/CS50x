@@ -10,18 +10,18 @@ def main():
 
     cents = change*100
 
-    quarters = calculate_quarters(700)
+    quarters = calculate_quarters(cents)
     cents -= quarters*25
-
+    print(quarters)
     dimes = calculate_dimes(cents)
     cents -= dimes*10
-
+    print(dimes)
     nickels = calculate_nickels(cents)
     cents -= nickels*5
-
+    print(nickels)
     pennies = calculate_pennies(cents)
     cents -= pennies*1
-
+    print(cents)
     total_coins = quarters + dimes + nickels + pennies
     print(total_coins)
 
@@ -55,9 +55,7 @@ def calculate_nickels(cents):
 def calculate_pennies(cents):
     penny = 1
     if cents >= penny:
-        remainder = cents % penny
-        coins = (cents - remainder)/penny
-        return coins
+        return cents
     else:
         return 0
 
