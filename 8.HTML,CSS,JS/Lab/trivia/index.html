@@ -32,8 +32,10 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3>The Higest number can be rendered using one byte is?</h3>
+                <div class="answer2"></div>
                 <input type="text" placeholder="Type your answer">
                 <button class="confirm">Confirm</button>
+
             </div>
         </div>
         <script>
@@ -63,7 +65,15 @@
                 let newarr = Array.from(btn);
                 newarr.map((ele) => ele.style = 'background-color:#d9edff;color:black;')
             })
-            
+            let ans2 = document.querySelector('.answer2');
+            let conf = document.querySelector('.confirm');
+            let inp = document.querySelector('input');
+            conf.addEventListener('click', () => {
+                if (parseInt(inp.value) != 255) {
+                    ans.innerText = 'Incorrect!';
+                ans.style = 'color: red; display: block;';
+                }
+            })
         </script>
     </body>
 </html>
