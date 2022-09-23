@@ -24,6 +24,7 @@
                 <button class="wrong1">Time complexity</button>
                 <button class="wrong2">Space complexity</button>
                 <button class="wrong3">Design and Structure of code</button>
+                <button class="reset">Reset</button>
             </div>
 
             <div class="section">
@@ -52,7 +53,11 @@
             wrong2.addEventListener('click', () => wron(wrong2))
             let wrong3 = document.querySelector('.wrong3');
             wrong3.addEventListener('click',() =>  wron(wrong3))
-
+            let res = document.querySelector('.reset');
+            res.addEventListener('click', () => {
+                ans.style.display = 'none';
+                button.style.backgroundColor = '#d9edff'
+            })
         </script>
     </body>
 </html>
