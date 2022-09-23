@@ -42,15 +42,15 @@
                 ans.style = 'color: green; display: block;';
             })
             function wron(ele) {
-                ele.style.backgroundColor = 'red';
+                ele.style = 'background-color:red';
                 ans.innerText = 'Incorrect!';
                 ans.style = 'color: red; display: block;';
             }
-            let wrong1 = document.querySelectorAll('.wrong1');
+            let wrong1 = document.querySelector('.wrong1');
             wrong1.addEventListener('click', wron(wrong1))
-            let wrong2 = document.querySelectorAll('.wrong2');
+            let wrong2 = document.querySelector('.wrong2');
             wrong2.addEventListener('click', wron(wrong2))
-            let wrong3 = document.querySelectorAll('.wrong3');
+            let wrong3 = document.querySelector('.wrong3');
             wrong3.addEventListener('click', wron(wrong3))
 
         </script>
