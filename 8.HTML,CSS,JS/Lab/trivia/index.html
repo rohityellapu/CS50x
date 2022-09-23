@@ -57,9 +57,10 @@
             let btn = document.querySelectorAll('button');
             res.addEventListener('click', () => {
                 ans.style.display = 'none';
-                btn.map((ele) => ele.style.backgroundColor = '#d9edff')
+                let newarr = Array.from(btn);
+                newarr.map((ele) => ele.style.backgroundColor = '#d9edff')
             })
-            console.log(btn[0]);
+            console.log(btn);
         </script>
     </body>
 </html>
