@@ -21,9 +21,9 @@
                 <!-- TODO: Add multiple choice question here -->
                 <h3>Optimization of the code depends on?</h3>
                 <button class="correctMultiple">Space and Time complexity</button>
-                <button class="wrongMultiple">Time complexity</button>
-                <button class="wrongMultiple">Space complexity</button>
-                <button class="wrongMultiple">Design and Structure of code</button>
+                <button class="wrong1">Time complexity</button>
+                <button class="wrong2">Space complexity</button>
+                <button class="wrong3">Design and Structure of code</button>
             </div>
 
             <div class="section">
@@ -41,11 +41,18 @@
                 ans.innerText = 'Correct!';
                 ans.style = 'color: green; display: block;';
             })
+            function wron(ele) {
+                ele.style.backgroundColor = 'red';
+                ans.innerText = 'Incorrect!';
+                ans.style = 'color: red; display: block;';
+            }
+            let wrong1 = document.querySelectorAll('.wrong1');
+            wrong1.addEventListener('click', wron(wrong1))
+            let wrong2 = document.querySelectorAll('.wrong2');
+            wrong2.addEventListener('click', wron(wrong2))
+            let wrong3 = document.querySelectorAll('.wrong3');
+            wrong3.addEventListener('click', wron(wrong3))
 
-            let wrong = document.querySelectorAll('.wrongMultiple');
-            wrong.addEventListener('click', () => {
-                wrong.style.backgroundColor = 'red';
-            })
         </script>
     </body>
 </html>
