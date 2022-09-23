@@ -9,7 +9,7 @@ body {
 }
 .answer,.answer2 {
     display: none;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 .container {
