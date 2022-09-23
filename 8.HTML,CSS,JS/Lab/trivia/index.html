@@ -38,12 +38,12 @@
             let correctMult = document.querySelector('.correctMultiple');
             let ans = document.querySelector('.answer');
             correctMult.addEventListener('click', () => {
-                correctMult.style = 'background-color:green;';
+                correctMult.style = 'background-color:green;color:white';
                 ans.innerText = 'Correct!';
                 ans.style = 'color: green; display: block;';
             })
             function wron(ele) {
-                ele.style = 'background-color:red';
+                ele.style = 'background-color:red;color:white';
                 ans.innerText = 'Incorrect!';
                 ans.style = 'color: red; display: block;';
             }
@@ -58,7 +58,7 @@
             res.addEventListener('click', () => {
                 ans.style.display = 'none';
                 let newarr = Array.from(btn);
-                newarr.map((ele) => ele.style.backgroundColor = '#d9edff')
+                newarr.map((ele) => ele.style = 'background-color:#d9edff;color:black;')
             })
             console.log(btn);
         </script>
