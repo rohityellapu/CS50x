@@ -35,8 +35,11 @@
         <script>
             // TODO: Add code to check answers to questions
             let correctMult = document.querySelector('.correctMultiple');
+            let ans = document.querySelector('.answer');
             correctMult.addEventListener('click', () => {
                 correctMult.style = 'background-color:red;';
+                ans.innerText = 'Correct!';
+                ans.style = 'color: green; display: block;
 
             })
         </script>
