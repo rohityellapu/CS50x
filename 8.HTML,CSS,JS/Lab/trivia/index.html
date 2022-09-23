@@ -37,10 +37,14 @@
             let correctMult = document.querySelector('.correctMultiple');
             let ans = document.querySelector('.answer');
             correctMult.addEventListener('click', () => {
-                correctMult.style = 'background-color:red;';
+                correctMult.style = 'background-color:green;';
                 ans.innerText = 'Correct!';
-                ans.style = 'color: green; display: block;
+                ans.style = 'color: green; display: block;';
+            })
 
+            let wrong = document.querySelectorAll('.wrongMultiple');
+            wrong.addEventListener('click', () => {
+                wrong.style.backgroundColor = 'red';
             })
         </script>
     </body>
