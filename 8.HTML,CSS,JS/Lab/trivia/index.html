@@ -70,8 +70,13 @@
             let inp = document.querySelector('input');
             conf.addEventListener('click', () => {
                 if (parseInt(inp.value) != 255) {
-                    ans.innerText = 'Incorrect!';
-                ans.style = 'color: red; display: block;';
+                    ans2.innerText = 'Incorrect!';
+                    ans2.style = 'color: red; display: block;';
+                    inp.value = '';
+                }
+                else {
+                    ans2.innerText = 'Correct!';
+                    ans2.style = 'color: green; display: block;';
                 }
             })
         </script>
