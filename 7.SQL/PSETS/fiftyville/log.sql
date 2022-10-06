@@ -11,7 +11,7 @@ SELECT name,transcript
 
 
 
-SELECT people.name, bakery_security_logs.activity
+SELECT people.name, bakery_security_logs.activity,
         FROM people
         JOIN bakery_security_logs
         ON people.license_plate = bakery_security_logs.license_plate
