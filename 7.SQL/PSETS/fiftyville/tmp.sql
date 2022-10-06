@@ -1,3 +1,3 @@
 
 
-SELECT people.name, 
+SELECT people.name, z€
