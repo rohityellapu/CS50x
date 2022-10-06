@@ -36,6 +36,14 @@ SELECT people.name, phone_calls.duration
         WHERE year = '2021' AND month = '7' AND day = '28' AND phone_calls.duration <= 60
         ORDER BY phone_calls.duration;
 
+
+SELECT people.name, airports.city AS destination_city, flights.hour, flights.minute
+        FROM people
+        JOIN passengers ON people.passport_number = passengers.passport_number
+        JOIN flights ON passengers.flight_id = flights.id
+        JOIN airports ON flights.destination_airport_id = airports.id
+        WHERE  flights.year = '2021' AND flights.month = '7' AND flights.day = '29'
+        ORDER BY flights.hour, flights.minute;
 -- SELECT name
 --     FROM people
 --     WHERE name
