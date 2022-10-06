@@ -21,7 +21,8 @@ SELECT people.name, bakery_security_logs.activity
                 AND bakery_security_logs.hour = 10
                 AND bakery_security_logs.minute <= 25
                 AND bakery_security_logs.minute >= 15
-                AND bakery_security_logs.activity = 'exit';
+                AND bakery_security_logs.activity = 'exit'
+        ORDER BY people.name;
 
 
 SELECT people.name,atm_transactions.amount
@@ -32,7 +33,8 @@ SELECT people.name,atm_transactions.amount
                 AND atm_transactions.month = '7'
                 AND atm_transactions.day = '28'
                 AND atm_transactions.atm_location = 'Leggett Street'
-                AND atm_transactions.transaction_type = 'withdraw';
+                AND atm_transactions.transaction_type = 'withdraw'
+        ORDER BY people.name;
 
 
 SELECT people.name, phone_calls.duration
@@ -40,7 +42,7 @@ SELECT people.name, phone_calls.duration
         JOIN phone_calls
         ON people.phone_number = phone_calls.caller
         WHERE year = '2021' AND month = '7' AND day = '28' AND phone_calls.duration <= 60
-        ORDER BY phone_calls.duration;
+        ORDER BY people.name;
 
 
 SELECT people.name, airports.city AS destination_city, flights.hour, flights.minute
@@ -49,7 +51,7 @@ SELECT people.name, airports.city AS destination_city, flights.hour, flights.min
         JOIN flights ON passengers.flight_id = flights.id
         JOIN airports ON flights.destination_airport_id = airports.id
         WHERE  flights.year = '2021' AND flights.month = '7' AND flights.day = '29' AND flights.hour <= 12
-        ORDER BY flights.hour, flights.minute;
+        ORDER BY flights.hour, flights.minute,people.name;
 
 
 
