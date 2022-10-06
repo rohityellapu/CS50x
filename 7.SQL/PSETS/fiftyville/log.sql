@@ -1,4 +1,5 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
+.schema;
 
 SELECT *
 FROM crime_scene_reports
@@ -50,7 +51,7 @@ SELECT people.name, airports.city AS destination_city, flights.hour, flights.min
         JOIN passengers ON people.passport_number = passengers.passport_number
         JOIN flights ON passengers.flight_id = flights.id
         JOIN airports ON flights.destination_airport_id = airports.id
-        WHERE  flights.year = '2021' AND flights.month = '7' AND flights.day = '29' AND flights.hour <= 12
+        WHERE  flights.year = '2021' AND flights.month = '7' AND flights.day = '29' AND flights.hour <= 12 AND flights.origin_airport_id = (SELECT id FROM airports WHERE city = 'Fiftyville')
         ORDER BY flights.hour, flights.minute,people.name;
 
 
