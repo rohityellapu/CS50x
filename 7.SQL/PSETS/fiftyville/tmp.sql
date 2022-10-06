@@ -12,3 +12,8 @@ SELECT name
         OR phone_number IN (SELECT receiver
                     FROM phone_calls
                     WHERE year = '2021' AND month = '7' AND day = '28' AND duration < 60)
+    AND passport_number
+    IN (SELECT passport_number
+            FROM passengers
+            WHERE flight_id
+            IN (SELECT id FROM flights WHERE year = '2021' AND month = '7' AND day = '28'))
