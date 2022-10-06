@@ -13,4 +13,4 @@ SELECT name
                 FROM phone_calls
                 WHERE year = '2021' AND month = '7' AND day = '28')
         OR passport_number
-        IN (SELECT passport_number FROM passengers WHERE ) )
+        IN (SELECT passport_number FROM passengers WHERE flight_id IN (SELECT id FROM flights WHERE)) )
