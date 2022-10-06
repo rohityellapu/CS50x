@@ -1,5 +1,5 @@
 
-SELECT name
+SELECT name,transcript
     FROM people
     WHERE name
     IN (SELECT name
