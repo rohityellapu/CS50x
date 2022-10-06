@@ -9,7 +9,8 @@ SELECT name
             FROM interviews
             WHERE year = '2021' AND month = '7' AND day = '28')
     AND (phone_number
-    IN (SELECT caller
-            FROM phone_calls
-            WHERE year = '2021' AND month = '7' AND day = '28')
-        OR () )
+        IN (SELECT caller
+                FROM phone_calls
+                WHERE year = '2021' AND month = '7' AND day = '28')
+        OR passport_number
+        IN (SELECT passport_number FROM passengers WHERE ) )
