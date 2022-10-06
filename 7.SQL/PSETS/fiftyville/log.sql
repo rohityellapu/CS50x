@@ -5,6 +5,10 @@ FROM crime_scene_reports
 WHERE year = '2021' AND month = '7' AND day = '28' AND street = 'Humphrey Street';
 
 
+SELECT name,transcript
+            FROM interviews
+            WHERE year = '2021' AND month = '7' AND day = '28' AND transcript LIKE '%bakery%';
+
 -- SELECT name
 --     FROM people
 --     WHERE name
