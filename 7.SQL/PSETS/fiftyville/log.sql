@@ -17,4 +17,5 @@ SELECT name
                 FROM passengers
                 WHERE flight_id
                 IN (SELECT id FROM flights WHERE year = '2021' AND month = '7' AND day = '28'))
-                )
+        OR license_plate
+        IN ())
