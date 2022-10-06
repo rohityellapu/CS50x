@@ -9,4 +9,4 @@ SELECT name
             FROM interviews
             WHERE year = '2021' AND month = '7' AND day = '28')
     AND phone_number
-    IN ()
+    IN (SELECT caller FROM phone_calls WHERE year = '2021' AND month = '7' AND day = '28')
