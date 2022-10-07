@@ -1,1 +1,0 @@
-SELECT id FROM airports WHERE city = 'Fiftyville'
