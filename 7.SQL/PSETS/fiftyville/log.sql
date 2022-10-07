@@ -5,7 +5,9 @@ SELECT *
 FROM crime_scene_reports
 WHERE year = '2021' AND month = '7' AND day = '28' AND street = 'Humphrey Street';
 
--- 
+-- Two crime incidents happened on that day, one is related to Theft and other is related to Littering .We can exlude the latter case
+-- As per description in crime report, the theft took place at 10:15 AM at the Humphrey Street bakety.
+-- Interviews were conducted with three witness, all of them mentioned bakery. 
 SELECT name,transcript
             FROM interviews
             WHERE year = '2021' AND month = '7' AND day = '28' AND transcript LIKE '%bakery%';
