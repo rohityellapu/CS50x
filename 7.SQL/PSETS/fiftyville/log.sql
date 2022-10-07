@@ -7,13 +7,15 @@ WHERE year = '2021' AND month = '7' AND day = '28' AND street = 'Humphrey Street
 
 -- Two crime incidents happened on that day, one is related to Theft and other is related to Littering .We can exlude the latter case
 -- As per description in crime report, the theft took place at 10:15 AM at the Humphrey Street bakety.
--- Interviews were conducted with three witness, all of them mentioned bakery. 
+-- Interviews were conducted with three witness, all of them mentioned bakery. So we list the names and transcript accordingly
 SELECT name,transcript
             FROM interviews
             WHERE year = '2021' AND month = '7' AND day = '28' AND transcript LIKE '%bakery%';
 
 
-
+-- The names of the three witnessess are Ruth, Eugene and Raymond
+-- Ruth claimed that the thief had left the bakery within ten minutes by car in parking lot.
+-- We list all the people who left the bakery in that time frame and order them name and put them on suspect list;
 SELECT people.name, bakery_security_logs.activity
         FROM people
         JOIN bakery_security_logs
@@ -27,7 +29,8 @@ SELECT people.name, bakery_security_logs.activity
                 AND bakery_security_logs.activity = 'exit'
         ORDER BY people.name;
 
-
+-- Eugene gave us clue that he saw the thief withrawing some money from an ATM on Legget Street
+-- We list the names of people who withrawed money on that ATM and add them on suspect list
 SELECT people.name,atm_transactions.amount
         FROM people
         JOIN bank_accounts ON people.id = bank_accounts.person_id
@@ -39,7 +42,8 @@ SELECT people.name,atm_transactions.amount
                 AND atm_transactions.transaction_type = 'withdraw'
         ORDER BY people.name;
 
-
+-- Raymond informed that the thief called somebody and talked for less than a minute about booking the earliest flight from Fiftyville on next day i.e. on July 29th
+-- First we list all the people who called on that day and talked for less than 60 seconds
 SELECT people.name, phone_calls.duration
         FROM people
         JOIN phone_calls
@@ -47,7 +51,7 @@ SELECT people.name, phone_calls.duration
         WHERE year = '2021' AND month = '7' AND day = '28' AND phone_calls.duration <= 60
         ORDER BY people.name;
 
-
+-- Then we list names of people who booked the earliest flights on 29th July from Fiftyville with
 SELECT people.name, airports.city AS destination_city, flights.hour, flights.minute
         FROM people
         JOIN passengers ON people.passport_number = passengers.passport_number
