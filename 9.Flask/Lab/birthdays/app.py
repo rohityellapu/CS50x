@@ -28,11 +28,11 @@ def index():
     if request.method == "POST":
 
         # TODO: Add the user's entry into the database
-        nam = request.form.get('name')
-        mont = int(request.form.get('month'))
-        da = int(request.form.get('day'))
-        query = f"INSERT INTO birthdays (id, {nam}, {mont}, {da}) VALUES (id, name, month, day)"
-        db.execute(query)
+        name= request.form.get('name')
+        month = int(request.form.get('month'))
+        day = int(request.form.get('day'))
+
+        db.execute(f"INSERT INTO birthdays ( name, month, day) VALUES (?,?,?)", name, month, day)
         return redirect("/")
 
     else:
