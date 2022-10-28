@@ -23,7 +23,7 @@ def after_request(response):
 
 
 @app.route("/", methods=["GET", "POST"])
-def index():
+def index(ind):
     if request.method == "POST":
 
         # TODO: Add the user's entry into the database
@@ -33,7 +33,7 @@ def index():
     else:
 
         # TODO: Display the entries in the database on index.html
-        index = db.execute(f"SELECT * FROM birthdays")
-        return render_template("index.html", index)
+        ind = db.execute(f"SELECT * FROM birthdays")
+        return render_template("index.html")
 
 
