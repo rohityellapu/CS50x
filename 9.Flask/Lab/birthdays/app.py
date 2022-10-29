@@ -29,16 +29,26 @@ def index():
 
         # TODO: Add the user's entry into the database
         name= request.form.get('name')
-        month = int(request.form.get('month'))
-        day = int(request.form.get('day'))
+        month = request.form.get('month')
+        day = request.form.get('day')
 
-        db.execute(f"INSERT INTO birthdays ( name, month, day) VALUES (?,?,?)", name, month, day)
-        return redirect("/")
+        missing = '';
+        if not name:
+            missing = 'Missing Name'
+        elif not month:
+            missing = 'Missing Month'
+        elif not day:
+            missing = 'Missing Day'
+        else:
+            db.execute(f"INSERT INTO birthdays ( name, month, day) VALUES (?,?,?)", name, int(month), int(day))
+
+        birthdays = db.execute(f"SELECT * FROM birthdays")
+        return render_template('index.html', birthdays=birthdays, missing=missing)
 
     else:
 
         # TODO: Display the entries in the database on index.html
-        ind = db.execute(f"SELECT * FROM birthdays")
-        return render_template("index.html", ind=ind)
+        birthdays = db.execute(f"SELECT * FROM birthdays")
+        return render_template("index.html", birthdays=birthdays)
 
 
