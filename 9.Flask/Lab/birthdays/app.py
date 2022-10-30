@@ -40,7 +40,7 @@ def index():
         elif not day:
             missing = 'Missing Day'
         else:
-            db.execute(f"INSERT INTO birthdays ( name, month, day) VALUES (?,?,?)", name, int(month), int(day))
+            db.execute(f"INSERT INTO birthdays (name, month, day) VALUES (?,?,?)", name, int(month), int(day))
 
         birthdays = db.execute(f"SELECT * FROM birthdays")
         return render_template('index.html', birthdays=birthdays, missing=missing)
