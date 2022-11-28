@@ -8,13 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"></script>
-    <link href="styles.css" rel="stylesheet">
+    <link href="./static/styles.css" rel="stylesheet">
     <title>My Webpage</title>
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top text-body">
       <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Cat Genie</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -28,6 +28,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop Cats</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
@@ -54,17 +60,28 @@
         </div>
       </div>
     </nav>
-    <main>
+    <main style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/14523476/pexels-photo-14523476.jpeg');">
       <section class="container main">
-        <div class="round profile-img">
-         
+        <div class="round profile-img right-float"
+         style="background-image: url('https://cdn.pixabay.com/photo/2018/03/27/17/25/cat-3266673__340.jpg');">
+
         </div>
-        <h2>
+        <h2 class="">
           Cats are always cats.
         </h2>
       </section>
-    </main>
 
+    </main>
+      <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+        style="background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/003.webp');">
+        <h1 class="mb-3 h2">Jumbotron</h1>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus praesentium
+          labore accusamus sequi, voluptate debitis tenetur in deleniti possimus modi voluptatum
+          neque maiores dolorem unde? Aut dolorum quod excepturi fugit.
+        </p>
+      </div>
   </body>
 
 </html>
