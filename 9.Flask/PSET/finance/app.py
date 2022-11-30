@@ -133,7 +133,7 @@ def register():
         if len(rows) != 0:
             return apology("User already exists, try loggin in", 403)
 
-        db.execute('INSERT INTO users ')
+        db.execute('INSERT INTO users (username, hash) VALUES (?,?)')
 
     else:
         return render_template('register.html')
