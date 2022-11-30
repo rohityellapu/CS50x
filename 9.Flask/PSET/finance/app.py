@@ -130,7 +130,10 @@ def register():
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?",
                           request.form.get("username"))
-        
+        if len(rows) != 0:
+            return apology("User already exists, try loggin in", 403)
+
+
 
     return apology("TODO")
 
