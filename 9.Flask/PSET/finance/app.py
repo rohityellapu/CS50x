@@ -134,7 +134,7 @@ def register():
             return apology("User already exists, try loggin in", 403)
 
         db.execute('INSERT INTO users (username, hash) VALUES (?,?)',
-                            request.form.get("username"), )
+                            request.form.get("username"), generate_password_hash(request.form.get("password")))
 
     else:
         return render_template('register.html')
