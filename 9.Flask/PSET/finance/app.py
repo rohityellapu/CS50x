@@ -130,7 +130,7 @@ def register():
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?",
                           request.form.get("username"))
-
+        
 
     return apology("TODO")
 
