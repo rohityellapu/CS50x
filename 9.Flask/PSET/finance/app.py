@@ -135,12 +135,16 @@ def register():
 
         db.execute('INSERT INTO users (username, hash) VALUES (?,?)',
                             request.form.get("username"), generate_password_hash(request.form.get("password")))
+        # Remember which user has logged in
+        session["user_id"] = request.form.get("username")
+
+        # Redirect user to home page
+        return redirect("/")
 
     else:
         return render_template('register.html')
 
 
-    return apology("TODO")
 
 
 @app.route("/sell", methods=["GET", "POST"])
