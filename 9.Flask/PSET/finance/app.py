@@ -46,6 +46,8 @@ def index():
     return render_template('index.html')
 
 # CREATE TABLE history (id INTEGER PRIMARY KEY, username TEXT NOT NULL, transaction_type TEXT NOT NULL,symbol TEXT NOT NULL, stock_name TEXT NOT NULL,stock_price NUMERIC NOT NULL, no_of_shares NUMERIC NOT NULL, total NUMERIC NOT NULL, transaction_date_time DATETIME);
+
+
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
@@ -65,15 +67,14 @@ def buy():
         if quote:
             if balance >= quote.price * request.form.get('shares'):
                 balance -= quote.price * request.form.get('shares')
-                db.execute('UPDATE users SET cash = ? WHERE id = ?', balance, session['user_id'])
+                db.execute('UPDATE users SET cash = ? WHERE id = ?',
+                           balance, session['user_id'])
 
             else:
                 return apology('no enough balance')
 
-
         else:
             return apology('Invalid stock symbol.')
-
 
     else:
         return render_template('buy.html')
@@ -105,7 +106,8 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
@@ -141,7 +143,6 @@ def quote():
         if not request.form.get('symbol'):
             return apology('Must provide Symbol', 403)
 
-
         quote = lookup(request.form.get('symbol'))
         if quote:
             return render_template('quoted.html', quote=quote)
@@ -171,7 +172,7 @@ def register():
             return apology("User already exists, try loggin in", 403)
 
         db.execute('INSERT INTO users (username, hash) VALUES (?,?)',
-                            request.form.get("username"), generate_password_hash(request.form.get("password")))
+                   request.form.get("username"), generate_password_hash(request.form.get("password")))
         # Remember which user has logged in
         session["user_id"] = request.form.get("username")
 
@@ -180,8 +181,6 @@ def register():
 
     else:
         return render_template('register.html')
-
-
 
 
 @app.route("/sell", methods=["GET", "POST"])
