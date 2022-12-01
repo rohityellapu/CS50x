@@ -65,6 +65,9 @@ def buy():
         else:
             return apology('Invalid stock symbol.')
 
+
+    else:
+        return render_template('buy.html')
 @app.route("/history")
 @login_required
 def history():
