@@ -45,7 +45,7 @@ def index():
     """Show portfolio of stocks"""
     return apology("TODO")
 
-
+# CREATE TABLE history (id INTEGER PRIMARY KEY, username TEXT NOT NULL, stock_bought TEXT NOT NULL,stock_price NUMERIC NOT NULL no_of_shares NUMERIC NOT NULL, total NUMERIC NOT NULL)
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
