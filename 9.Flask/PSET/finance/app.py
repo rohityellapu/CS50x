@@ -65,6 +65,8 @@ def buy():
         if quote:
             if balance >= quote.price * request.form.get('shares'):
                 balance -= quote.price * request.form.get('shares')
+                db.execute('UPDATE users SET cash = ? WHERE id = ?', balance, session['user_id'])
+                
             else:
                 return apology('no enough balance')
 
