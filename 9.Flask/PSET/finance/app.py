@@ -50,7 +50,14 @@ def index():
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+        # Ensure symbol was submitted
+        if not request.form.get("symbol"):
+            return apology("must provide symbol", 403)
+
+        # Ensure shares was submitted
+        elif not request.form.get("shares") or request.form.get('shares') < 1:
+            return apology("must provide valid number of shares", 403)
 
 
 @app.route("/history")
