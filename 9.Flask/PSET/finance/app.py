@@ -63,8 +63,12 @@ def buy():
         balance = db.execute(
             'SELECT cash FROM users WHERE id = ?', session["user_id"])
         if quote:
-            if balance >= quote.price * 
-            return render_template('quoted.html', quote=quote)
+            if balance >= quote.price * request.form.get('shares'):
+                balance -= quote.price * request.form.get('shares')
+            else:
+                return apology('not enough balance')
+
+
         else:
             return apology('Invalid stock symbol.')
 
