@@ -66,7 +66,7 @@ def buy():
             if balance >= quote.price * request.form.get('shares'):
                 balance -= quote.price * request.form.get('shares')
             else:
-                return apology('not enough balance')
+                return apology('no enough balance')
 
 
         else:
