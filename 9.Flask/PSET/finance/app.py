@@ -61,7 +61,7 @@ def buy():
 
         quote = lookup(request.form.get('symbol'))
         if quote:
-            
+            return render_template('quoted.html', quote=quote)
         else:
             return apology('Invalid stock symbol.')
 
