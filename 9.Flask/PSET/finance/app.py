@@ -117,8 +117,10 @@ def quote():
 
 
         quote = lookup(request.form.get('quote'))
-        return render_template('quoted.html', )
-    return apology("TODO")
+        if quote:
+            return render_template('quoted.html', quote=quote)
+    else:
+        return render_template('quote.html')
 
 
 @app.route("/register", methods=["GET", "POST"])
