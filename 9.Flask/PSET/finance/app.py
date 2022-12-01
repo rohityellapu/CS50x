@@ -60,7 +60,10 @@ def buy():
             return apology("must provide valid number of shares", 403)
 
         quote = lookup(request.form.get('symbol'))
+        balance = db.execute(
+            'SELECT cash FROM users WHERE id = ?', session["user_id"])
         if quote:
+            if balance >= quote.price * 
             return render_template('quoted.html', quote=quote)
         else:
             return apology('Invalid stock symbol.')
