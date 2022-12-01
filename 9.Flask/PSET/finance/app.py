@@ -59,6 +59,11 @@ def buy():
         elif not request.form.get("shares") or request.form.get('shares') < 1:
             return apology("must provide valid number of shares", 403)
 
+        quote = lookup(request.form.get('symbol'))
+        if quote:
+            
+        else:
+            return apology('Invalid stock symbol.')
 
 @app.route("/history")
 @login_required
