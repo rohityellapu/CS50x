@@ -43,8 +43,6 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-
-    
     return render_template('index.html')
 
 # CREATE TABLE history (id INTEGER PRIMARY KEY, username TEXT NOT NULL, transaction_type TEXT NOT NULL,symbol TEXT NOT NULL, stock_name TEXT NOT NULL,stock_price NUMERIC NOT NULL, no_of_shares NUMERIC NOT NULL, total NUMERIC NOT NULL, transaction_date_time DATETIME);
