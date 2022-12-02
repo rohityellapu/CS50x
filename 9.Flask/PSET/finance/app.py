@@ -45,8 +45,7 @@ def index():
     """Show portfolio of stocks"""
     return render_template('index.html')
 
-# CREATE TABLE history (id INTEGER PRIMARY KEY, username TEXT NOT NULL, transaction_type TEXT NOT NULL,symbol TEXT NOT NULL, stock_name TEXT NOT NULL,stock_price NUMERIC NOT NULL, no_of_shares NUMERIC NOT NULL, total NUMERIC NOT NULL, transaction_date_time DATETIME);
-
+# INSERT INTO history ()
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -69,6 +68,8 @@ def buy():
                 balance -= quote.price * request.form.get('shares')
                 db.execute('UPDATE users SET cash = ? WHERE id = ?',
                            balance, session['user_id'])
+
+                db.execute('')
 
             else:
                 return apology('no enough balance')
