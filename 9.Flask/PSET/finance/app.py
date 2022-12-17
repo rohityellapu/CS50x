@@ -51,12 +51,20 @@ def index():
     # Value of all the shares user holding
     total_stocks_value = 0
 
-    # Add current price and total value of each stock
+    # Add current price and total value of each stock of user stocks
     for stock in user_stocks:
+        # Get current value of the stock
         price = lookup(stock['symbol'])['price']
+
+        # Add new current price field
         stock['price'] = price
+
+        # Adding total value of the number of shares of particular stock
         stock['total'] = round(price * stock['shares'], 2)
+
         total_stocks_value += stock['total']
+
+    # User's current available cash
     user_cash = db.execute('SELECT cash FROM users WHERE username = ?', session['user'])[0]['cash']
 
     return render_template('index.html', stocks=user_stocks, cash=user_cash, total=total_stocks_value, usd=usd)
@@ -176,7 +184,7 @@ def quote():
             return apology('Must provide Symbol', 400)
 
         quote = lookup(request.form.get('symbol'))
-
+        # Ensuring the valid stock symbol
         if quote:
             quote['price'] = usd(quote['price'])
             return render_template('quoted.html', quote=quote)
@@ -227,9 +235,7 @@ def sell():
     """Sell shares of stock"""
     user_stocks = db.execute(
         'SELECT symbol, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol', session['user'])
-    # print(user_stocks)
-    # if len(user_stocks) == 0:
-    #     return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 400)
+    
     if request.method == 'POST':
 
         if not request.form.get("shares") or int(request.form.get('shares')) < 1:
