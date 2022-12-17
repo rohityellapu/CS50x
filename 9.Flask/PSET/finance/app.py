@@ -46,10 +46,12 @@ def index():
 
     user_stocks = db.execute(
         "SELECT symbol,stock_name, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol;", session['user'])
-
+    for stock in user_stocks:
+        price = lookup(stock['symbol'])['price']
     return render_template('index.html')
 
-# INSERT INTO history ()
+
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
