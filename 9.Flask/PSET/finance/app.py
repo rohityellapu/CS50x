@@ -87,7 +87,7 @@ def buy():
                     session["user"], "buy", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
                 db.execute('UPDATE users SET cash = ? WHERE username = ?',
                            balance[0]['cash'], session['user'])
-                flash(f"Bought {request.form.get('shares')} shares of {quote['name']} worth {quote['price']} each.")
+                flash(f"Bought! {request.form.get('shares')} shares of {quote['name']} worth {usd(quote['price'])} each.")
                 return redirect("/")
 
             else:
@@ -172,6 +172,7 @@ def quote():
             return apology('Must provide Symbol', 400)
 
         quote = lookup(request.form.get('symbol'))
+        quote['price'] = usd(quote['price'])
         if quote:
             return render_template('quoted.html', quote=quote)
         else:
@@ -247,7 +248,7 @@ def sell():
                    balance[0]['cash'], session['user'])
 
         flash(
-            f"Sold {request.form.get('shares')} shares of {quote['name']} worth {quote['price']} each.")
+            f"Sold! {request.form.get('shares')} shares of {quote['name']} worth {usd(quote['price'])} each.")
         return redirect('/')
     else:
 
