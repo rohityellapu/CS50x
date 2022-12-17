@@ -210,6 +210,6 @@ def sell():
         return apology("TODO")
     else:
 
-        return render_template('sell.html')
+        return render_template('sell.html', stocks=user_stocks)
 
 
