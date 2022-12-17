@@ -208,7 +208,10 @@ def sell():
         return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 403)
     if request.method == 'POST':
 
-        if request.form.get('shares')
+        if not request.form.get("shares") or int(request.form.get('shares')) < 1:
+            return apology("Must provide valid number of shares", 403)
+
+        
         return apology("TODO")
     else:
 
