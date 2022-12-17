@@ -213,6 +213,10 @@ def sell():
 
         quote = lookup(request.form.get('symbol'))
 
+        for stock in user_stocks:
+            if stock['symbol'] == request.form.get('symbol'):
+                if stock['shares'] < request.form.get('shares'):
+                    return apology('Number of shares are more than you own. Try a different number.')
         balance = db.execute(
                 'SELECT cash FROM users WHERE username = ?', session["user"])
         total = quote['price'] * float(request.form.get('shares'))
