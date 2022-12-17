@@ -220,9 +220,13 @@ def sell():
         balance = db.execute(
                 'SELECT cash FROM users WHERE username = ?', session["user"])
         total = quote['price'] * float(request.form.get('shares'))
+        balance[0]['cash'] += total
         db.execute(
             'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
-            session["user"], "sell", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
+            session["user"], "sell", quote["symbol"], quote["name"], quote["price"], -request.form.get('shares'), total, datetime.now())
+
+        db.execute('UPDATE users SET cash = ? WHERE username = ?',
+                   balance[0]['cash'], session['user'])
         return apology("TODO")
     else:
 
