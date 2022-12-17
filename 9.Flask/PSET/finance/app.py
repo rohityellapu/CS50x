@@ -87,7 +87,7 @@ def buy():
                     session["user"], "buy", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
                 db.execute('UPDATE users SET cash = ? WHERE username = ?',
                            balance[0]['cash'], session['user'])
-
+                flash(f'Bought {request.form.get('share')} shares of {quote['name']}.')
                 return redirect("/")
 
             else:
@@ -105,7 +105,7 @@ def buy():
 def history():
     """Show history of transactions"""
 
-    user_history = db.execute("SELECT * FROM history WHERE username = ? ORDER BY transacted DESC;", session['user'])
+    user_history = db.execute("SELECT * FROM history WHERE username = ? ORDER BY transacted DESC", session['user'])
 
     return render_template('history.html', history= user_history)
 
@@ -139,6 +139,9 @@ def login():
         # Remember which user has logged in
         session["user"] = rows[0]["username"]
 
+        # Flash a login message
+        flash('Logged in.')
+
         # Redirect user to home page
         return redirect("/")
 
@@ -154,6 +157,8 @@ def logout():
     # Forget any user_id
     session.clear()
 
+    # Flash log out message
+    flash('Logged out.')
     # Redirect user to login form
     return redirect("/")
 
@@ -240,6 +245,8 @@ def sell():
 
         db.execute('UPDATE users SET cash = ? WHERE username = ?',
                    balance[0]['cash'], session['user'])
+
+        flash(f'')
         return redirect('/')
     else:
 
