@@ -207,6 +207,7 @@ def register():
                    request.form.get("username"), generate_password_hash(request.form.get("password")))
         # Remember which user has logged in
         session["user"] = request.form.get("username")
+        
         flash('Registered!')
         # Redirect user to home page
         return redirect("/")
