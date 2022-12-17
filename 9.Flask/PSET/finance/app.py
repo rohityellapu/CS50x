@@ -91,10 +91,10 @@ def buy():
                 return redirect("/")
 
             else:
-                return apology('No enough balance.Try different number of shares')
+                return apology('No enough balance.Try different number of shares',400)
 
         else:
-            return apology('Invalid stock symbol.')
+            return apology('Invalid stock symbol.',400)
 
     else:
         return render_template('buy.html')
@@ -171,11 +171,12 @@ def quote():
             return apology('Must provide Symbol', 400)
 
         quote = lookup(request.form.get('symbol'))
-        quote['price'] = usd(quote['price'])
+
         if quote:
+            quote['price'] = usd(quote['price'])
             return render_template('quoted.html', quote=quote)
         else:
-            return apology('Invalid stock symbol.')
+            return apology('Invalid stock symbol.', 400)
 
     else:
         return render_template('quote.html')
