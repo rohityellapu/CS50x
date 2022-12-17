@@ -7,7 +7,7 @@ Log In
 {% block main %}
 <div class="table-responsive p-4">
 
-    <table class="table align-middle table-striped table-hover">
+    <table class="table align-right table-striped table-hover">
         <thead>
             <tr>
 
@@ -33,19 +33,19 @@ Log In
             {% endfor %}
         </tbody>
         <tfoot>
-            <tr>
+            <tr class="align-midlle">
                 <td colspan="4">Cash</td>
                 <td>${{ cash }}</td>
             </tr>
-            <tr>
+            <tr class="align-midlle">
                 <td colspan="4">Stocks Value</td>
                 <td>${{ total }}</td>
             </tr>
-            <tr>
+            <tr class="align-midlle">
                 <td colspan="4">TOTAL</td>
                 <td>${{ cash + total }}</td>
             </tr>
-            <tr>
+            <tr class="align-midlle">
                 <td colspan="4">Profit / Loss</td>
                 <td>${{ 10000 - (cash + total) }}</td>
             </tr>
