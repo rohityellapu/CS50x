@@ -47,6 +47,7 @@ def index():
 
 # INSERT INTO history ()
 
+
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
@@ -70,10 +71,9 @@ def buy():
             if balance[0]['cash'] >= total:
                 balance[0]['cash'] -= total
 
-
                 db.execute(
                     'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
-                    session["user"], "buy", quote["symbol"], quote["name"],quote["price"],request.form.get('shares'), total, getdate())
+                    session["user"], "buy", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, getdate())
                 db.execute('UPDATE users SET cash = ? WHERE username = ?',
                            balance[0]['cash'], session['user'])
 
