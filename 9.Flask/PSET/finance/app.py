@@ -258,6 +258,13 @@ def sell():
 @app.route("/login", methods=["GET", "POST"])
 def change_password():
     if request.method == 'POST':
+        # Ensure password was submitted
+        if not request.form.get("password") or not request.form.get('confirmation'):
+            return apology("Must provide password", 400)
+
+        elif request.form.get('password') != request.form.get('confirmation'):
+            return apology('Passwords doesn"t match', 400)
+
         
     else:
         return render_template('password.html')
