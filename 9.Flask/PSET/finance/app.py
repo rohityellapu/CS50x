@@ -44,9 +44,14 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
+    # Find all the stocks that the user holds aggregately.
     user_stocks = db.execute(
         "SELECT symbol,stock_name, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol;", session['user'])
+
+    # Value of all the shares user holding
     total_stocks_value = 0
+
+    # Add current price and total value of each stock
     for stock in user_stocks:
         price = lookup(stock['symbol'])['price']
         stock['price'] = price
