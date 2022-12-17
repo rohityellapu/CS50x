@@ -255,5 +255,7 @@ def sell():
 
         return render_template('sell.html', stocks=user_stocks)
 
-
+@app.route("/login", methods=["GET", "POST"])
+def change_password():
+    
 
