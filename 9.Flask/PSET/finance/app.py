@@ -104,6 +104,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
+
+    user_history = db.execute("")
     return apology("TODO")
 
 
