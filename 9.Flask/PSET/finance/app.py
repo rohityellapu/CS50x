@@ -54,7 +54,7 @@ def index():
         total_stocks_value += stock['total']
     user_cash = db.execute('SELECT cash FROM users WHERE username = ?', session['user'])[0]['cash']
 
-    return render_template('index.html', stocks=user_stocks, cash=user_cash, total=total_stocks_value)
+    return render_template('index.html', stocks=user_stocks, cash=round(user_cash,2), total=round(total_stocks_value, 2))
 
 
 
