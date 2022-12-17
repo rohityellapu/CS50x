@@ -5,17 +5,17 @@ Log In
 {% endblock %}
 
 {% block main %}
-<div class="table-responsive p-4">
 
-    <table class="table align-right table-striped table-hover">
+
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
 
-                <th scope="col">Symbol</th>
-                <th scope="col">Name</th>
-                <th scope="col">Shares</th>
-                <th scope="col">Price</th>
-                <th scope="col">TOTAL</th>
+                <th scope="text-start">Symbol</th>
+                <th scope="text-start">Name</th>
+                <th scope="text-end">Shares</th>
+                <th scope="text-end">Price</th>
+                <th scope="text-end">TOTAL</th>
             </tr>
         </thead>
         <tbody>
@@ -51,5 +51,5 @@ Log In
             </tr>
         </tfoot>
     </table>
-</div>
+
 {% endblock %}
