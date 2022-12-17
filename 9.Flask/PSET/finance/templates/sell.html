@@ -8,10 +8,10 @@ Sell
 <form action="/sell" method="post">
     <div class="row justify-content-center">
         <div class="col-1">
-            <select class="form-select mb-3" aria-label="example">
+            <select class="form-select mb-3" aria-label="example" name="symbol">
                 <option selected disabled>Symbol</option>
                 {% for stock in stocks %}
-                <option value={{ stock.symbol }}>{{ stock.symbol }}</option>
+                <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
                 {% endfor %}
             </select>
         </div>
