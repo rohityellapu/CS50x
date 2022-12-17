@@ -44,7 +44,7 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    
+
     return render_template('index.html')
 
 # INSERT INTO history ()
@@ -201,4 +201,9 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    if request.method = 'POST':
+
+
+    else:
+        
     return apology("TODO")
