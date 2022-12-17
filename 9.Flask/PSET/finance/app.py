@@ -87,20 +87,33 @@ def buy():
 
         quote = lookup(request.form.get('symbol'))
 
+        # Ensure the stock quote exists on the given symbol.
         if quote:
+
+            # Query user's current available cash.
             balance = db.execute(
                 'SELECT cash FROM users WHERE username = ?', session["user"])
+
+            # Total value of shares.
             total = quote['price'] * float(request.form.get('shares'))
 
+            # Ensuring user has enough cash to buy the shares.
             if balance[0]['cash'] >= total:
-                balance[0]['cash'] -= total
 
+                # Adding the current transaction into histiry of transactions.
                 db.execute(
                     'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
                     session["user"], "buy", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
+
+                # Updating user's balance.
+                balance[0]['cash'] -= total
                 db.execute('UPDATE users SET cash = ? WHERE username = ?',
                            balance[0]['cash'], session['user'])
+
+                # Flash the bought message.
                 flash(f"Bought! {request.form.get('shares')} shares of {quote['name']} worth {usd(quote['price'])} each.")
+
+                # Redirect to index page
                 return redirect("/")
 
             else:
@@ -112,14 +125,17 @@ def buy():
     else:
         return render_template('buy.html')
 
+
 @app.route("/history")
 @login_required
 def history():
     """Show history of transactions"""
 
+    # Query all the user's transactions from history table.
     user_history = db.execute("SELECT * FROM history WHERE username = ? ORDER BY transacted DESC", session['user'])
 
-    return render_template('history.html', history= user_history)
+    # Render history template
+    return render_template('history.html', history=user_history)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -184,7 +200,7 @@ def quote():
             return apology('Must provide Symbol', 400)
 
         quote = lookup(request.form.get('symbol'))
-        # Ensuring the valid stock symbol
+        # Ensure the valid stock symbol
         if quote:
             quote['price'] = usd(quote['price'])
             return render_template('quoted.html', quote=quote)
@@ -208,11 +224,15 @@ def register():
         elif not request.form.get("password"):
             return apology("Must provide password", 400)
 
+        # Ensure both the given are same.
         elif request.form.get('password') != request.form.get('confirmation'):
             return apology('Passwords doesn"t match', 400)
+
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?",
                           request.form.get("username"))
+
+        # Check if the user already exists.
         if len(rows) != 0:
             return apology("User already exists, try loggin in", 400)
 
@@ -233,53 +253,73 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    # Find all the stocks that the user holds aggregately.
     user_stocks = db.execute(
         'SELECT symbol, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol', session['user'])
-    
+
     if request.method == 'POST':
 
+        # Ensuring Valid number of shares
         if not request.form.get("shares") or int(request.form.get('shares')) < 1:
             return apology("Must provide valid number of shares", 400)
 
         quote = lookup(request.form.get('symbol'))
 
+        # Ensuring user has sufficient amout of shares
         for stock in user_stocks:
             if stock['symbol'] == request.form.get('symbol'):
                 if stock['shares'] < int(request.form.get('shares')):
                     return apology('Number of shares are more than you own. Try a different number.', 400)
+
+        # Querying user available cash
         balance = db.execute(
                 'SELECT cash FROM users WHERE username = ?', session["user"])
+
+        # Total value of stocks
         total = quote['price'] * float(request.form.get('shares'))
-        balance[0]['cash'] += total
+
+        # Updating the history of transaction
         shares = -int(request.form.get('shares'))
         db.execute(
             'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
             session["user"], "sell", quote["symbol"], quote["name"], quote["price"], shares, total, datetime.now())
 
+        # Updating user's available balance
+        balance[0]['cash'] += total
         db.execute('UPDATE users SET cash = ? WHERE username = ?',
                    balance[0]['cash'], session['user'])
 
+        # Flash sold message
         flash(
             f"Sold! {request.form.get('shares')} shares of {quote['name']} worth {usd(quote['price'])} each.")
+
+        # Redirect to index page.
         return redirect('/')
     else:
-
         return render_template('sell.html', stocks=user_stocks)
+
 
 @app.route("/password", methods=["GET", "POST"])
 def change_password():
+    """Change the password of the user."""
     if request.method == 'POST':
-        # Ensure password was submitted
+
+        # Ensure password was submitted.
         if not request.form.get("password") or not request.form.get('confirmation'):
             return apology("Must provide password", 400)
 
+        # Ensuring the two password are same.
         elif request.form.get('password') != request.form.get('confirmation'):
             return apology('Passwords doesn"t match', 400)
 
+        # Updating the user's hash with new password.
         db.execute('UPDATE users SET hash = ? WHERE username = ?',
                    generate_password_hash(request.form.get("password")), session['user'])
 
+        # Flash update message.
         flash('Password Updated')
+
+        # Redirect to index page.
         return redirect('/')
     else:
         return render_template('password.html')
