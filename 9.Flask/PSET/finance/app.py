@@ -44,7 +44,9 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-
+    user_stocks = db.execute(
+        "SELECT symbol,stock_name, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol;", session['user'])
+    
     return render_template('index.html')
 
 # INSERT INTO history ()
