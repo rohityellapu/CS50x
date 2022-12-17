@@ -228,7 +228,7 @@ def sell():
 
         db.execute('UPDATE users SET cash = ? WHERE username = ?',
                    balance[0]['cash'], session['user'])
-        return apology("TODO")
+        return redirect('/')
     else:
 
         return render_template('sell.html', stocks=user_stocks)
