@@ -23,28 +23,28 @@ Log In
             <td>{{ stock.symbol }}</td>
             <td>{{ stock.stock_name }}</td>
             <td>{{ stock.shares }}</td>
-            <td>${{ stock.price }}</td>
+            <td class="text-right">${{ stock.price }}</td>
             <td>${{ stock.total }}</td>
         </tr>
         {% endif %}
         {% endfor %}
     </tbody>
     <tfoot>
-        <tr class="align-midlle">
+        <tr>
             <td colspan="4">Cash</td>
-            <td>${{ cash }}</td>
+            <td class="text-center">${{ cash }}</td>
         </tr>
-        <tr class="align-midlle">
+        <tr>
             <td colspan="4">Stocks Value</td>
-            <td>${{ total }}</td>
+            <td class="text-center">${{ total }}</td>
         </tr>
-        <tr class="align-midlle">
+        <tr>
             <td colspan="4">TOTAL</td>
-            <td>${{ cash + total }}</td>
+            <td class="text-center">${{ cash + total }}</td>
         </tr>
-        <tr class="align-midlle">
+        <tr>
             <td colspan="4">Profit / Loss</td>
-            <td>${{ 10000 - (cash + total) }}</td>
+            <td class="text-center">${{ 10000 - (cash + total) }}</td>
         </tr>
     </tfoot>
 </table>
