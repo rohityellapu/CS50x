@@ -87,7 +87,7 @@ def buy():
                     session["user"], "buy", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
                 db.execute('UPDATE users SET cash = ? WHERE username = ?',
                            balance[0]['cash'], session['user'])
-                flash(f"Bought {request.form.get('shares')} shares of {quote['name']}.")
+                flash(f"Bought {request.form.get('shares')} shares of {quote['name']} worth {quote['price']} each.")
                 return redirect("/")
 
             else:
@@ -246,7 +246,8 @@ def sell():
         db.execute('UPDATE users SET cash = ? WHERE username = ?',
                    balance[0]['cash'], session['user'])
 
-        flash(f"Sold {request.form.get('shares')} shares of {quote['name']}.")
+        flash(
+            f"Sold {request.form.get('shares')} shares of {quote['name']} worth {quote['price']} each.")
         return redirect('/')
     else:
 
