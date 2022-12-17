@@ -220,9 +220,9 @@ def sell():
     """Sell shares of stock"""
     user_stocks = db.execute(
         'SELECT symbol, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol', session['user'])
-    print(user_stocks)
-    if len(user_stocks) == 0:
-        return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 400)
+    # print(user_stocks)
+    # if len(user_stocks) == 0:
+    #     return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 400)
     if request.method == 'POST':
 
         if not request.form.get("shares") or int(request.form.get('shares')) < 1:
