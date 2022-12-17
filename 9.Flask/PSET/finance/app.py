@@ -265,7 +265,7 @@ def change_password():
         elif request.form.get('password') != request.form.get('confirmation'):
             return apology('Passwords doesn"t match', 400)
 
-        
+        db.execute('UPDATE users SET hash = ? WHERE username = ?', )
     else:
         return render_template('password.html')
 
