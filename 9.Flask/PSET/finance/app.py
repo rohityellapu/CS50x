@@ -54,7 +54,7 @@ def index():
         total_stocks_value += stock['total']
     user_cash = db.execute('SELECT cash FROM users WHERE username = ?', session['user'])[0]['cash']
 
-    return render_template('index.html', stocks=user_stocks, cash=usd(user_cash), total=total_stocks_value, usd=usd)
+    return render_template('index.html', stocks=user_stocks, cash=user_cash, total=total_stocks_value, usd=usd)
 
 
 
@@ -207,7 +207,7 @@ def register():
                    request.form.get("username"), generate_password_hash(request.form.get("password")))
         # Remember which user has logged in
         session["user"] = request.form.get("username")
-        
+
         flash('Registered!')
         # Redirect user to home page
         return redirect("/")
