@@ -26,17 +26,20 @@ Log In
                         <td>{{ stock.symbol }}</td>
                         <td>{{ stock.stock_name }}</td>
                         <td>{{ stock.shares }}</td>
-                        <td>{{ stock.price }}</td>
+                        <td>${{ stock.price }}</td>
+                        <td>${{ stock.total }}</td>
                     </tr>
                 {% endif %}
             {% endfor %}
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4">{{ cash }}</td>
+                <td colspan="4">Cash</td>
+                <td>${{ cash }}</td>
             </tr>
             <tr>
-                <td colspan="4">{{ cash + total }}</td>
+                <td colspan="4">TOTAL</td>
+                <td>${{ cash + total }}</td>
             </tr>
         </tfoot>
     </table>
