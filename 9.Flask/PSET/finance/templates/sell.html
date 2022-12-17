@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Buy
+Sell
 {% endblock %}
 
 {% block main %}
@@ -10,9 +10,9 @@ Buy
         <div class="col-1">
             <select class="form-select mb-3" aria-label="example">
                 <option selected disabled>Symbol</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                {% for stock in stocks %}
+                <option value={{ stock.symbol }}>{{ stock.symbol }}</option>
+                {% endfor %}
             </select>
         </div>
     </div>
