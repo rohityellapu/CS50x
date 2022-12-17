@@ -201,11 +201,11 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    db.execute(
+    user_stocks = db.execute(
         'SELECT symbol, SUM(no_of_shares) FROM history WHERE username = 'r' GROUP BY symbol;')
+    print(user_stocks)
     if request.method == 'POST':
         return apology("TODO")
-
     else:
         return render_template('sell.html')
 
