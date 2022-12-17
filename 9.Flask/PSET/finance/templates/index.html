@@ -19,31 +19,24 @@ Log In
             </tr>
         </thead>
         <tbody>
-            <tr>
+            {% for stock in stocks %}
+                {% if stock.shares > 0 %}
+                    <tr>
 
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+                        <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.stock_name }}</td>
+                        <td>{{ stock.shares }}</td>
+                        <td>{{ stock.price }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4">Cash</td>
+                <td colspan="4">{{ cash }}</td>
             </tr>
             <tr>
-                <td colspan="4">TOTAL</td>
+                <td colspan="4">{{ cash + total }}</td>
             </tr>
         </tfoot>
     </table>

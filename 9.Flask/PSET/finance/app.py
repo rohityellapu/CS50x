@@ -46,13 +46,15 @@ def index():
 
     user_stocks = db.execute(
         "SELECT symbol,stock_name, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol;", session['user'])
+    total_stocks_value = 0
     for stock in user_stocks:
         price = lookup(stock['symbol'])['price']
         stock['price'] = price
         stock['total'] = price * stock['shares']
+        total_stocks_value += stock['total']
     user_cash = db.execute('SELECT cash FROM users WHERE username = ?', session['user'])[0]['cash']
-    
-    return render_template('index.html', stocks=user_stocks, cash=user_cash)
+
+    return render_template('index.html', stocks=user_stocks, cash=user_cash, total=total_stocks_value)
 
 
 
