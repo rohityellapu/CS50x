@@ -9,9 +9,9 @@ Sell
     <div class="row justify-content-center">
         <div class="col-1">
             <select class="form-select mb-3" aria-label="example" name="symbol">
-                <option selected disabled>Symbol</option>
+                <option disabled>Symbol</option>
                 {% for stock in stocks %}
-                <option value="{{ stock.symbol }}">{{ stock.symbol }}</option>
+                <option selected value="{{ stock.symbol }}">{{ stock.symbol }}</option>
                 {% endfor %}
             </select>
         </div>
