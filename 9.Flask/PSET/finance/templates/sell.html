@@ -7,8 +7,12 @@ Buy
 {% block main %}
 <form action="/buy" method="post">
     <div class="mb-3">
-        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol"
-            placeholder="Symbol" type="text">
+        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
     </div>
     <div class="mb-3">
         <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares"
