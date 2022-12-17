@@ -211,7 +211,9 @@ def sell():
         if not request.form.get("shares") or int(request.form.get('shares')) < 1:
             return apology("Must provide valid number of shares", 403)
 
-        
+        db.execute(
+            'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
+            session["user"], "sell", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
         return apology("TODO")
     else:
 
