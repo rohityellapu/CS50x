@@ -69,7 +69,7 @@ def buy():
             return apology("Must provide symbol", 400)
 
         # Ensure shares was submitted
-        elif not request.form.get("shares") or int(request.form.get('shares')) < 1:
+        elif not request.form.get("shares") or request.form.get('shares').isdigit() or int(request.form.get('shares')) < 1:
             return apology("Must provide valid number of shares", 400)
 
         quote = lookup(request.form.get('symbol'))
