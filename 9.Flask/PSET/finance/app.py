@@ -270,8 +270,7 @@ def sell():
                     return apology('Number of shares are more than you own. Try a different number.', 400)
 
         # Querying user available cash
-        balance = db.execute(
-                'SELECT cash FROM users WHERE username = ?', session["user"])
+        balance = db.execute('SELECT cash FROM users WHERE username = ?', session["user"])
 
         # Total value of stocks
         total = quote['price'] * float(request.form.get('shares'))
@@ -321,4 +320,3 @@ def change_password():
         return redirect('/')
     else:
         return render_template('password.html')
-
