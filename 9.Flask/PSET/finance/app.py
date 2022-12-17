@@ -66,11 +66,11 @@ def buy():
     if request.method == "POST":
         # Ensure symbol was submitted
         if not request.form.get("symbol"):
-            return apology("Must provide symbol", 403)
+            return apology("Must provide symbol", 400)
 
         # Ensure shares was submitted
         elif not request.form.get("shares") or int(request.form.get('shares')) < 1:
-            return apology("Must provide valid number of shares", 403)
+            return apology("Must provide valid number of shares", 400)
 
         quote = lookup(request.form.get('symbol'))
 
@@ -222,18 +222,18 @@ def sell():
         'SELECT symbol, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol', session['user'])
     print(user_stocks)
     if len(user_stocks) == 0:
-        return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 403)
+        return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 400)
     if request.method == 'POST':
 
         if not request.form.get("shares") or int(request.form.get('shares')) < 1:
-            return apology("Must provide valid number of shares", 403)
+            return apology("Must provide valid number of shares", 400)
 
         quote = lookup(request.form.get('symbol'))
 
         for stock in user_stocks:
             if stock['symbol'] == request.form.get('symbol'):
                 if stock['shares'] < int(request.form.get('shares')):
-                    return apology('Number of shares are more than you own. Try a different number.', 403)
+                    return apology('Number of shares are more than you own. Try a different number.', 400)
         balance = db.execute(
                 'SELECT cash FROM users WHERE username = ?', session["user"])
         total = quote['price'] * float(request.form.get('shares'))
