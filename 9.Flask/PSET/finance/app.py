@@ -213,7 +213,9 @@ def sell():
 
         quote = lookup(request.form.get('symbol'))
 
-
+        balance = db.execute(
+                'SELECT cash FROM users WHERE username = ?', session["user"])
+        total = quote['price'] * float(request.form.get('shares'))
         db.execute(
             'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
             session["user"], "sell", quote["symbol"], quote["name"], quote["price"], request.form.get('shares'), total, datetime.now())
