@@ -50,11 +50,11 @@ def index():
     for stock in user_stocks:
         price = lookup(stock['symbol'])['price']
         stock['price'] = price
-        stock['total'] = price * stock['shares']
+        stock['total'] = round(price * stock['shares'], 2)
         total_stocks_value += stock['total']
     user_cash = db.execute('SELECT cash FROM users WHERE username = ?', session['user'])[0]['cash']
 
-    return render_template('index.html', stocks=user_stocks, cash=round(user_cash,2), total=round(total_stocks_value, 2))
+    return render_template('index.html', stocks=user_stocks, cash=round(user_cash,2), total=total_stocks_value)
 
 
 
