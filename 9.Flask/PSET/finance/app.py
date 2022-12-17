@@ -202,11 +202,14 @@ def register():
 def sell():
     """Sell shares of stock"""
     user_stocks = db.execute(
-        'SELECT symbol, SUM(no_of_shares) FROM history WHERE username = 'r' GROUP BY symbol;')
+        'SELECT symbol, SUM(no_of_shares) AS shares FROM history WHERE username = ? GROUP BY symbol', session['user'])
     print(user_stocks)
+    if len(user_stocks) == 0:
+        return aplogy('You don"t have any stocks yet, Goto buy option to buy some', 403)
     if request.method == 'POST':
         return apology("TODO")
     else:
+
         return render_template('sell.html')
 
 
