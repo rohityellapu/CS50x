@@ -255,7 +255,7 @@ def sell():
 
         return render_template('sell.html', stocks=user_stocks)
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/password", methods=["GET", "POST"])
 def change_password():
     if request.method == 'POST':
         # Ensure password was submitted
