@@ -5,7 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
-
+from datetime import datetime
 from helpers import apology, login_required, lookup, usd
 
 # Configure application
@@ -54,25 +54,33 @@ def buy():
     if request.method == "POST":
         # Ensure symbol was submitted
         if not request.form.get("symbol"):
-            return apology("must provide symbol", 403)
+            return apology("Must provide symbol", 403)
 
         # Ensure shares was submitted
-        elif not request.form.get("shares") or request.form.get('shares') < 1:
-            return apology("must provide valid number of shares", 403)
+        elif not request.form.get("shares") or int(request.form.get('shares')) < 1:
+            return apology("Must provide valid number of shares", 403)
 
         quote = lookup(request.form.get('symbol'))
-        balance = db.execute(
-            'SELECT cash FROM users WHERE id = ?', session["user_id"])
-        if quote:
-            if balance >= quote.price * request.form.get('shares'):
-                balance -= quote.price * request.form.get('shares')
-                db.execute('UPDATE users SET cash = ? WHERE id = ?',
-                           balance, session['user_id'])
 
-                db.execute('')
+        if quote:
+            balance = db.execute(
+                'SELECT cash FROM users WHERE username = ?', session["user"])
+            total = quote['price'] * float(request.form.get('shares'))
+            print(GETDATE())
+            if balance[0]['cash'] >= total:
+                balance[0]['cash'] -= total
+
+
+                db.execute(
+                    'INSERT INTO history (username, transaction_type, symbol,stock_name, stock_price,no_of_shares,total, transacted) VALUES (?,?,?,?,?,?,?,?)',
+                    session["user"], "buy", quote["symbol"], quote["name"],quote["price"],request.form.get('shares'), total, getdate())
+                db.execute('UPDATE users SET cash = ? WHERE username = ?',
+                           balance[0]['cash'], session['user'])
+
+                return redirect("/")
 
             else:
-                return apology('no enough balance')
+                return apology('No enough balance.Try different number of shares')
 
         else:
             return apology('Invalid stock symbol.')
@@ -104,7 +112,7 @@ def login():
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("Must provide password", 403)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?",
@@ -112,10 +120,10 @@ def login():
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return apology("invalid username and/or password", 403)
+            return apology("Invalid username and/or password", 403)
 
         # Remember which user has logged in
-        session["user_id"] = rows[0]["id"]
+        session["user"] = rows[0]["username"]
 
         # Redirect user to home page
         return redirect("/")
@@ -149,6 +157,7 @@ def quote():
             return render_template('quoted.html', quote=quote)
         else:
             return apology('Invalid stock symbol.')
+
     else:
         return render_template('quote.html')
 
@@ -160,12 +169,14 @@ def register():
     if request.method == 'POST':
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("Must provide username", 403)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("Must provide password", 403)
 
+        elif request.form.get('password') != request.form.get('password2'):
+            return apology('Passwords doesn"t match', 403)
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?",
                           request.form.get("username"))
@@ -175,8 +186,8 @@ def register():
         db.execute('INSERT INTO users (username, hash) VALUES (?,?)',
                    request.form.get("username"), generate_password_hash(request.form.get("password")))
         # Remember which user has logged in
-        session["user_id"] = request.form.get("username")
-
+        session["user"] = request.form.get("username")
+        flash('Registered!')
         # Redirect user to home page
         return redirect("/")
 
