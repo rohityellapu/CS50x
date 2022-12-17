@@ -115,10 +115,10 @@ def buy():
                 return redirect("/")
 
             else:
-                return apology('No enough balance.Try different number of shares',400)
+                return apology('No enough balance.Try different number of shares', 400)
 
         else:
-            return apology('Invalid stock symbol.',400)
+            return apology('Invalid stock symbol.', 400)
 
     else:
         return render_template('buy.html')
