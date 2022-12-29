@@ -1,10 +1,9 @@
-body {
-    color: white;
-}
+
 
 .main {
     height:100%;
     width:100%;
+    color: white;
 }
 main {
     height: 100vh;
@@ -30,7 +29,7 @@ main {
 .right-float {
     float: right;
 }
-h2 {
+.head {
     position:absolute;
     top:80%;
     right:20%;
