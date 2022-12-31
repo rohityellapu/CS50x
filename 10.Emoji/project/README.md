@@ -6,6 +6,15 @@
 * The app use [Redux](https://redux.js.org/) state container which stores the state of items in order basket and restaurant state globally.
 * The app contains lots of icons taken from react-native-icons which made easy in sizing and coloring components.
 
+### Technologies used
+* Expi Go
+* React-Native
+* TailWind CSS
+* Sanity
+* GraphQL
+* React Stack Navigation
+* React Animatable
+* React Redux
 
 # Getting Started
 
@@ -19,11 +28,14 @@
 
 ### Add  ` --web` at the end of command if running on web, add ` --android` if running on android or ` --ios` if running on ios.
 
+* To see your results you can use android sumulator and physical android device but for iOS,
+* You may need Mac iOS for running in iOS Simulator or you physical iOS mobile device
+
 * Note: If running on web the CSS properties may get errors, Use Nativewind Documentation for proper usage. Quick solution is uncomment lines 1-9 in App.js while running on web and comment it if running on other platforms.
 
 ## For Sanity
 Go inside sanity folder and install all depencies and run
-## `sanity dev` and upon producton run `sanity build`
+### `sanity dev` and upon production run `sanity build`
 
 * Note: You must login to sanity and configure your account credentials before running sanity SDK.
 
