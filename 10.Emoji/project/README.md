@@ -1,6 +1,6 @@
 # Deliverio
 #### Video Demo: [https://youtu.be/gZM1vMrrzIs](https://youtu.be/gZM1vMrrzIs)
-#### Description: A Food Delivery app built on React-Native with help of Expo Go compatible on both Android and iOS.
+#### Description: A Food Delivery app built on React-Native with help of Expo Go compatible on both Android and iOS. 
 
 
 # Quickstart
