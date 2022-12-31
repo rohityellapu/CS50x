@@ -1,6 +1,6 @@
 # Deliverio
 #### Video Demo: [https://youtu.be/gZM1vMrrzIs](https://youtu.be/gZM1vMrrzIs)
-#### Description: A Food Delivery app built on React-Native with help of Expo Go compatible on both Android and iOS. 
+#### Description: A Food Delivery app built on [React-Native](https://reactnative.dev/) with help of Expo Go compatible on both Android and iOS. Used [TailWind CSS](https://www.nativewind.dev/) (NativeWind for React-Native) for aesthetics of screens. Data is stored and managed by [sanity](https://www.sanity.io/) which uses GraphQL query Language for querying data and designing schema models.
 
 
 # Quickstart
