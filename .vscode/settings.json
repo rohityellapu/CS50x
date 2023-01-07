@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "*.ejs": "html",
-        "cs50.h": "c"
-    },
-    "gitdoc.enabled": true
-}
