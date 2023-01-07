@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It takes less than a second everytime when sorting through Sorted50000.txt and took more than 3 seconds in sorting other two 50000.txt. Means there is no Swaping happening when it is already sorted.(Upperbound: O(n^2), Lowerbound: Omega(n))
+
+sort2 uses: Merge Sort
+
+How do you know?: It takes less than a second everytime when sorting through every 50000.txt files. Means It is the least time taken Sorting method for any given data.(Upperbound and Lowerbound: Theta(nlog(n)))
+
+sort3 uses: Selection Sort
+
+How do you know?: It always takes more than 3 seconds when sorting any type of 50000.txt file. It means it is the highest time taken sorting method for any given type of data.(Upperbound and Lowerbound: Theta(n^2))

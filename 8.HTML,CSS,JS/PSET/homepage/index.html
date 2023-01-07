@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+    <link href="./static/styles.css" rel="stylesheet">
+    <title>My Webpage</title>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top text-body">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Cat Genie</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Shop Cats</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Resources
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="about.html">About</a></li>
+                <li><a class="dropdown-item" href="#">Resources</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">CS50</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">CS50</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <main style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/14523476/pexels-photo-14523476.jpeg');">
+      <section class="container main">
+        <div class="round profile-img right-float"
+         style="background-image: url('https://cdn.pixabay.com/photo/2018/03/27/17/25/cat-3266673__340.jpg');">
+
+        </div>
+        <h2 class="head">
+          Cats are always cats.
+        </h2>
+      </section>
+
+    </main>
+    <div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">More about </h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+
+          <h2>Connect with me</h2>
+          <p>Click on the Contact nav link in the navbar to navigate to my contact page.</p>
+          <a href="contact.html" class="icon-link btn btn-primary">
+            Let's go
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#chevron-right"></use>
+            </svg>
+          </a>
+        </div>
+        <div class="feature col">
+
+          <h2>This is CS50</h2>
+          <p>A very special thanks to CS50 Harvard Course to help me learn deeply about Computer Science</p>
+          <a href="https://cs50.harvard.edu" class="icon-link btn btn-primary">
+            Let's go.
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#chevron-right"></use>
+            </svg>
+          </a>
+        </div>
+        <div class="feature col">
+
+          <h2>My Projects</h2>
+          <p>My Projects are included with CS50 projects . Click on About link in nav bar to got to that page.</p>
+          <a href="about.html" class="icon-link btn btn-primary">
+            Let's Go
+            <svg class="bi" width="1em" height="1em">
+              <use xlink:href="#chevron-right"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link px-2 text-muted">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link px-2 text-muted">Contact</a></li>
+          <li class="nav-item"><a href="https://github.com/code50/100713605" class="nav-link px-2 text-muted">Source Code</a></li>
+          <li class="nav-item"><a href="https://cs50.harvard.edu" class="nav-link px-2 text-muted">CS50</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2023 Company, Inc</p>
+      </footer>
+  </body>
+
+</html>
