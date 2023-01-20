@@ -1,0 +1,36 @@
+
+
+.main {
+    height:100%;
+    width:100%;
+    color: white;
+}
+main {
+    height: 100vh;
+    width: 100vw;
+    background-size:100% 100%;
+    margin:0;
+    padding:0;
+}
+
+.round {
+    border: 5px solid gray;
+    border-radius: 50%;
+}
+
+.profile-img {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    position: absolute;
+    right:20%;
+    top:20%
+}
+.right-float {
+    float: right;
+}
+.head {
+    position:absolute;
+    top:80%;
+    right:20%;
+}

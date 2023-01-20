@@ -1,4 +1,0 @@
-1. Prompt the user to get the height of the pyramid
-2. If height is not in between 1 and 8 or not a positive interger, prompt again
-3. Create a for loop to build the number of rows(height) of the pyramid
-4. Iterate over each row and print the required hashes
